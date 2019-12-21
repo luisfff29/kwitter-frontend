@@ -7,3 +7,7 @@
 #like {
   cursor: pointer;
 }
+
+#textarea {
+  height: 45px;
+}
