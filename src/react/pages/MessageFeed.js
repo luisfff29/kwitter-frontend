@@ -1,13 +1,20 @@
 import React from "react";
-import { Menu } from "../components";
+import { Menu, MessageList, MessageForm } from "../components";
 import { userIsAuthenticated } from "../HOCs";
+import { Comment, Header } from "../components";
 
 class MessageFeed extends React.Component {
   render() {
     return (
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
-        <h2>Message Feed</h2>
+        <Comment.Group size="large">
+          <MessageForm />
+          <Header as="h2" dividing>
+            Message List
+          </Header>
+          <MessageList />
+        </Comment.Group>
       </>
     );
   }

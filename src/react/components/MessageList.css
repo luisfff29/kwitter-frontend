@@ -1,0 +1,13 @@
+#avatar {
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+}
+
+#like {
+  cursor: pointer;
+}
+
+#textarea {
+  height: 45px;
+}
