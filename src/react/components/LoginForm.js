@@ -2,6 +2,9 @@ import React from "react";
 import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import "./LoginForm.css";
+import { Link } from "react-router-dom";
+import { Button } from "../components";
+
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -14,6 +17,13 @@ class LoginForm extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+
+  // Need a Method for the create account button 
+  HandleCreateUser = e => {
+    
+  }
+  
 
   render() {
     const { loading, error } = this.props;
@@ -39,6 +49,15 @@ class LoginForm extends React.Component {
             Login
           </button>
         </form>
+
+        <Link to = "/createuser">
+          <Button 
+          type="button">
+            Create Account
+          </Button>
+        </Link>
+
+
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </React.Fragment>
