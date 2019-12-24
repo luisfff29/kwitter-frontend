@@ -3,7 +3,7 @@ export { default as LoginForm } from "./LoginForm";
 export { default as Menu } from "./Menu";
 export { default as MessageList } from "./MessageList";
 export { default as MessageForm } from "./MessageForm";
-//export { default as CreateUser } from "../pages/CreateUser";
+export { default as CreateUserForm } from "./CreateUserForm";
 
 // components from other packages
 export { Switch, Route, Link } from "react-router-dom";
