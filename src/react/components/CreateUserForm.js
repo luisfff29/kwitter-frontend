@@ -1,34 +1,32 @@
 import React from "react";
-import { Menu } from ".";
-import { userIsNotAuthenticated } from "../HOCs";
 //import "./CreateUser.css"
 
 class CreateUserForm extends React.Component {
-    state = {  
-        FirstName: "",
-        LastName: "",
-        UserName: "",
-        Email: "",
-        Password: "",
-        ConfirmPassword: ""
-    };
+  state = {
+    FirstName: "",
+    LastName: "",
+    UserName: "",
+    Email: "",
+    Password: "",
+    ConfirmPassword: ""
+  };
 
-    handleCreate = e => {
-      this.setState({ [e.target.name]: e.target.value });
-    };
+  handleCreate = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-    render() {
-        return (
-            <React.Fragment>
-            <Menu isAuthenticated = {this.props.isAuthenticated} />
-
-{/* make a handleCreate for what happens when submitted */}
-          <h1><center>Welcome to Kwitter</center></h1>
+  render() {
+    return (
+      <React.Fragment>
+        {/* make a handleCreate for what happens when submitted */}
+        <h1>
+          <center>Welcome to Kwitter</center>
+        </h1>
 
         <form id="createUser" onSubmit={this.handleCreate}>
           <label htmlFor="FirstName">First Name</label>
           <input
-            className = "field"
+            className="field"
             type="text"
             name="FirstName"
             autoFocus
@@ -38,7 +36,7 @@ class CreateUserForm extends React.Component {
           <br />
           <label htmlFor="LastName">Last Name</label>
           <input
-            className = "field"
+            className="field"
             type="text"
             name="LastName"
             autoFocus
@@ -46,9 +44,9 @@ class CreateUserForm extends React.Component {
             onChange={this.handleCreate}
           />
           <br />
-           <label htmlFor="userName">Username</label>
+          <label htmlFor="userName">Username</label>
           <input
-            className = "field"
+            className="field"
             type="text"
             name="userName"
             autoFocus
@@ -56,9 +54,9 @@ class CreateUserForm extends React.Component {
             onChange={this.handleCreate}
           />
           <br />
-           <label htmlFor="Email">Email</label>
+          <label htmlFor="Email">Email</label>
           <input
-            className = "field"
+            className="field"
             type="email"
             name="Email"
             autoFocus
@@ -68,29 +66,26 @@ class CreateUserForm extends React.Component {
           <br />
           <label htmlFor="password">Password</label>
           <input
-            className = "field"
+            className="field"
             type="password"
             name="password"
             required
             onChange={this.handleCreate}
           />
           <br />
-           <label htmlFor="ConfirmPassword">Confirm Password</label>
+          <label htmlFor="ConfirmPassword">Confirm Password</label>
           <input
-            className = "field"
+            className="field"
             type="password"
             name="ConfirmPassword"
             required
             onChange={this.handleCreate}
           />
           <br />
-          <button type="submit">
-            Create
-          </button>
+          <button type="submit">Create</button>
         </form>
-
-            </React.Fragment>
-        )
-    }
+      </React.Fragment>
+    );
+  }
 }
-export default userIsNotAuthenticated(CreateUserForm);
+export default CreateUserForm;
