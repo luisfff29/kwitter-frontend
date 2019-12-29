@@ -4,6 +4,7 @@ export { default as Menu } from "./Menu";
 export { default as MessageList } from "./MessageList";
 export { default as MessageForm } from "./MessageForm";
 export { default as CreateUserForm } from "./CreateUserForm";
+export { default as FeedCode } from "./FeedCode";
 
 // components from other packages
 export { Switch, Route, Link } from "react-router-dom";

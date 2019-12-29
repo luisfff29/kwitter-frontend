@@ -1,91 +1,49 @@
 import React from "react";
+import { Link } from "../components";
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 //import "./CreateUser.css"
 
-class CreateUserForm extends React.Component {
-  state = {
-    FirstName: "",
-    LastName: "",
-    UserName: "",
-    Email: "",
-    Password: "",
-    ConfirmPassword: ""
-  };
 
-  handleCreate = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+const CreateUserForm = () => (
+  <React.Fragment>
+  <h1>Welcome to Kwitter!</h1>
 
-  render() {
-    return (
-      <React.Fragment>
-        {/* make a handleCreate for what happens when submitted */}
-        <h1>
-          <center>Welcome to Kwitter</center>
-        </h1>
+  <Form>
+    <Form.Field>
+      <label>First Name</label>
+      <input placeholder='First Name' />
+    </Form.Field>
 
-        <form id="createUser" onSubmit={this.handleCreate}>
-          <label htmlFor="FirstName">First Name</label>
-          <input
-            className="field"
-            type="text"
-            name="FirstName"
-            autoFocus
-            required
-            onChange={this.handleCreate}
-          />
-          <br />
-          <label htmlFor="LastName">Last Name</label>
-          <input
-            className="field"
-            type="text"
-            name="LastName"
-            autoFocus
-            required
-            onChange={this.handleCreate}
-          />
-          <br />
-          <label htmlFor="userName">Username</label>
-          <input
-            className="field"
-            type="text"
-            name="userName"
-            autoFocus
-            required
-            onChange={this.handleCreate}
-          />
-          <br />
-          <label htmlFor="Email">Email</label>
-          <input
-            className="field"
-            type="email"
-            name="Email"
-            autoFocus
-            required
-            onChange={this.handleCreate}
-          />
-          <br />
-          <label htmlFor="password">Password</label>
-          <input
-            className="field"
-            type="password"
-            name="password"
-            required
-            onChange={this.handleCreate}
-          />
-          <br />
-          <label htmlFor="ConfirmPassword">Confirm Password</label>
-          <input
-            className="field"
-            type="password"
-            name="ConfirmPassword"
-            required
-            onChange={this.handleCreate}
-          />
-          <br />
-          <button type="submit">Create</button>
-        </form>
-      </React.Fragment>
-    );
-  }
-}
+    <Form.Field>
+      <label>Last Name</label>
+      <input placeholder='Last Name' />
+    </Form.Field>
+
+    <Form.Field>
+    <label>Username</label>
+    <input placeholder='Username' />
+    </Form.Field>
+
+    <Form.Field>
+    <label>Email</label>
+    <input placeholder='Email' />
+    </Form.Field>
+
+    <Form.Field>
+    <label>Password</label>
+    <input placeholder='Password' />
+    </Form.Field>
+
+    <Form.Field>
+    <label>Confirm Password</label>
+    <input placeholder='Confirm Password' />
+    </Form.Field>
+
+    <Button type='submit'>Create</Button>
+  </Form>
+
+  <Link to = "/">Go Back</Link>
+  </React.Fragment>
+)
+
 export default CreateUserForm;
