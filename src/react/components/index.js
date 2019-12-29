@@ -7,4 +7,12 @@ export { default as MessageForm } from "./MessageForm";
 // components from other packages
 export { Switch, Route, Link } from "react-router-dom";
 export { default as Spinner } from "react-spinkit";
-export { Comment, Header, Feed, Icon, Button, Form } from "semantic-ui-react";
+export {
+  Comment,
+  Header,
+  Feed,
+  Icon,
+  Button,
+  Form,
+  Label
+} from "semantic-ui-react";
