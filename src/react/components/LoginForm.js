@@ -1,7 +1,13 @@
 import React from "react";
 import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
+import { Link } from "../components";
 import "./LoginForm.css";
+
+// _____Where the user will be rendered!!!!!!_____
+// const loadUsers = () =>
+//   fetch("")
+//     .then()
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -38,7 +44,14 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
+
+          <Link to="/createuser">
+            <button type="submit" disabled={loading} id="createuser">
+              Create Account
+            </button>
+          </Link>
         </form>
+
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </React.Fragment>

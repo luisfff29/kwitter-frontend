@@ -28,18 +28,6 @@ const fakeMessages = [
         username: "And1drew",
         messageId: 2114,
         createdAt: "2019-12-12T21:33:38.977Z"
-      },
-      {
-        id: 3141,
-        username: "And1drew",
-        messageId: 2114,
-        createdAt: "2019-12-12T21:33:38.977Z"
-      },
-      {
-        id: 3141,
-        username: "And1drew",
-        messageId: 2114,
-        createdAt: "2019-12-12T21:33:38.977Z"
       }
     ]
   },
