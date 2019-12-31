@@ -3,6 +3,12 @@ import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Link } from "../components";
 import "./LoginForm.css";
+ 
+
+// _____Where the user will be rendered!!!!!!_____
+// const loadUsers = () => 
+//   fetch("")
+//     .then()
 
 // _____Where the user will be rendered!!!!!!_____
 // const loadUsers = () =>
@@ -20,6 +26,9 @@ class LoginForm extends React.Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+
+  
 
   render() {
     const { loading, error } = this.props;
