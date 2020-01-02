@@ -1,5 +1,6 @@
 import React from "react";
 import "./MessageList.css";
+import WhoLikeIt from "./WhoLikeIt";
 import { Comment, Feed, Icon } from "../components";
 
 const fakeMessages = [
@@ -54,9 +55,21 @@ const fakeMessages = [
 ];
 
 class MessageList extends React.Component {
+  state = { hovering: false, id: "" };
+
+  mouseOver = theId =>
+    this.setState({
+      hovering: true,
+      id: theId
+    });
+  mouseOut = () =>
+    this.setState({
+      hovering: false
+    });
+
   render() {
     return fakeMessages.map(comment => (
-      <Comment>
+      <Comment id={comment.id} key={comment.id}>
         <Comment.Avatar
           id="avatar"
           src="https://react.semantic-ui.com/images/avatar/small/matt.jpg"
@@ -71,9 +84,18 @@ class MessageList extends React.Component {
             </div>
           </Comment.Metadata>
           <Comment.Text>{comment.text}</Comment.Text>
-          <Feed.Like id="like">
-            <Icon name="like" />
-            {comment.likes.length} Like(s)
+          <Feed.Like
+            id="like"
+            onMouseOver={() => this.mouseOver(comment.id)}
+            onMouseOut={this.mouseOut}
+          >
+            <Icon name="like" esto={comment} />
+            {comment.likes.length} Like(s){" "}
+            {this.state.hovering &&
+            this.state.id === comment.id &&
+            comment.likes.length !== 0 ? (
+              <WhoLikeIt esto={comment} />
+            ) : null}
           </Feed.Like>
         </Comment.Content>
       </Comment>
