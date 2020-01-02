@@ -10,6 +10,11 @@ import "./LoginForm.css";
 //   fetch("")
 //     .then()
 
+// _____Where the user will be rendered!!!!!!_____
+// const loadUsers = () =>
+//   fetch("")
+//     .then()
+
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
 
@@ -48,17 +53,13 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
-        
 
-          <Link to = "/createuser">
-            <button 
-            type="submit"
-            disabled = {loading} 
-            id = "createuser">
+          <Link to="/createuser">
+            <button type="submit" disabled={loading} id="createuser">
               Create Account
             </button>
           </Link>
-          </form>
+        </form>
 
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}

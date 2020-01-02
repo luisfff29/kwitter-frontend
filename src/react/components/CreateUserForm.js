@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "../components";
-import { Button, Form } from "../components";
+import { Button, Form } from "semantic-ui-react";
 //import "./CreateUser.css"
 
 const CreateUserForm = () => (
