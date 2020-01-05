@@ -4,6 +4,7 @@ export { default as Menu } from "./Menu";
 export { default as MessageList } from "./MessageList";
 export { default as MessageForm } from "./MessageForm";
 export { default as CreateUserForm } from "./CreateUserForm";
+export { default as PopupLikes } from "./PopupLikes";
 export { default as FeedCode } from "./FeedCode";
 
 // components from other packages
@@ -16,5 +17,6 @@ export {
   Icon,
   Button,
   Form,
-  Label
+  Label,
+  Popup
 } from "semantic-ui-react";
