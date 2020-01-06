@@ -5,21 +5,28 @@ import { Comment } from "../components";
 
 class MessageList extends React.Component {
   state = { messages: [] };
+
   componentDidMount = () => {
     fetch("https://kwitter-api.herokuapp.com/messages")
       .then(response => response.json())
       .then(data => {
+        data.messages.map((user, index) =>
+          fetch("https://kwitter-api.herokuapp.com/users/" + user.username)
+            .then(res => res.json())
+            .then(prom => {
+              data.messages[index].pictureLocation =
+                "https://kwitter-api.herokuapp.com" + prom.user.pictureLocation;
+            })
+        );
         this.setState({ messages: data.messages });
       });
   };
 
   render() {
+    console.log(this.state.messages.map(user => user.pictureLocation));
     return this.state.messages.map(comment => (
-      <Comment id={comment.id} key={comment.id}>
-        <Comment.Avatar
-          id="avatar"
-          src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
-        />
+      <Comment key={comment.id}>
+        <Comment.Avatar id="avatar" src={comment.pictureLocation} />
         <Comment.Content>
           <Comment.Author as="a">{comment.username}</Comment.Author>
           <Comment.Metadata>
