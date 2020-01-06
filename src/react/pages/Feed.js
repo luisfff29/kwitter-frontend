@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { Menu, FeedCode } from "../components";
+import { userIsAuthenticated } from "../HOCs";
 
 class Feed extends Component {
-
-    render() {
-        return (
-            <React.Fragment>
-            <h2>This is the Feed Page</h2>
-            <Menu />
-            <FeedCode />
-            </React.Fragment>
-        )
-    }
+  render() {
+    return (
+      <>
+        <Menu isAuthenticated={this.props.isAuthenticated} />
+        <FeedCode />
+      </>
+    );
+  }
 }
 
-export default Feed;
+export default userIsAuthenticated(Feed);
