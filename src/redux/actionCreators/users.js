@@ -9,13 +9,16 @@ export const getUser = username => dispatch => {
     return fetch(url + "/" + username, {
         method: "GET",
         headers: jsonHeaders
-    }).then(handleJsonResponse).then(result => {
-        return dispatch ({
-            type: GETUSER.SUCCESS,
-            payload: result
+    })
+    .then(handleJsonResponse)
+        .then(result => {
+            return dispatch ({
+                type: GETUSER.SUCCESS,
+                payload: result
         });
-    }).catch(err => {
+    })
+    .catch(err => {
         return Promise.reject(dispatchEvent({ type:
         GETUSER.FAIL, payload: err}))
-    })
+    });
 };

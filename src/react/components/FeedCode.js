@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./FeedCode.css"
 import { Feed, Form, TextArea, Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 
-
 const cards = [
     {
       avatar: '/images/avatar/large/helen.jpg',
@@ -24,7 +23,7 @@ const cards = [
     },
   ]
 
-const FeedPage = () => (
+class FeedPage extends Component (
 <React.Fragment>
   <Sidebar.Pushable as={Segment}>
   <Sidebar
@@ -37,16 +36,16 @@ const FeedPage = () => (
     width='thin'
   >
     <Menu.Item as='a'>
-      <Icon name='home' />
-      Home
+      <Icon name='Profile' />
+      Profile
     </Menu.Item>
     <Menu.Item as='a'>
-      <Icon name='gamepad' />
-      Games
+      <Icon name='Messages' />
+      Messages
     </Menu.Item>
     <Menu.Item as='a'>
-      <Icon name='camera' />
-      Channels
+      <Icon name='Log-out' />
+      Log-out
     </Menu.Item>
   </Sidebar>
 
