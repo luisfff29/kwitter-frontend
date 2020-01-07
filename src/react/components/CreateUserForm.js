@@ -9,23 +9,13 @@ const CreateUserForm = () => (
 
     <Form>
       <Form.Field>
-        <label>First Name</label>
-        <input placeholder="First Name" />
-      </Form.Field>
-
-      <Form.Field>
-        <label>Last Name</label>
-        <input placeholder="Last Name" />
-      </Form.Field>
-
-      <Form.Field>
         <label>Username</label>
         <input placeholder="Username" />
       </Form.Field>
 
       <Form.Field>
-        <label>Email</label>
-        <input placeholder="Email" />
+        <label>Display Name</label>
+        <input placeholder="Display Name" />
       </Form.Field>
 
       <Form.Field>

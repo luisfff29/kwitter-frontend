@@ -23,7 +23,7 @@ class MessageList extends React.Component {
   };
 
   render() {
-    console.log(this.state.messages.map(user => user.pictureLocation));
+    console.log(this.state.messages);
     return this.state.messages.map(comment => (
       <Comment key={comment.id}>
         <Comment.Avatar id="avatar" src={comment.pictureLocation} />
