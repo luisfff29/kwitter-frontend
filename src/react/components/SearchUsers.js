@@ -1,6 +1,8 @@
-import React, { Component } from "react";
 import _ from "lodash";
-import { Search } from "../components";
+import React, { Component } from "react";
+import { Search, Grid, Header, Segment } from "semantic-ui-react";
+
+const initialState = { isLoading: false, results: [], value: "" };
 
 const source = [
   {
@@ -50,8 +52,8 @@ const source = [
   }
 ];
 
-class SearchUsers extends Component {
-  state = { isLoading: false, results: [], value: "" };
+export default class SearchUsers extends Component {
+  state = initialState;
 
   handleResultSelect = (e, { result }) =>
     this.setState({ value: result.username });
@@ -60,8 +62,7 @@ class SearchUsers extends Component {
     this.setState({ isLoading: true, value });
 
     setTimeout(() => {
-      if (this.state.value.length < 1)
-        return this.setState({ isLoading: false, results: [], value: "" });
+      if (this.state.value.length < 1) return this.setState(initialState);
 
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
       const isMatch = result => re.test(result.username);
@@ -77,18 +78,32 @@ class SearchUsers extends Component {
     const { isLoading, value, results } = this.state;
 
     return (
-      <Search
-        loading={isLoading}
-        onResultSelect={this.handleResultSelect}
-        onSearchChange={_.debounce(this.handleSearchChange, 500, {
-          leading: true
-        })}
-        results={results}
-        value={value}
-        {...this.props}
-      />
+      <Grid>
+        <Grid.Column width={6}>
+          <Search
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={_.debounce(this.handleSearchChange, 500, {
+              leading: true
+            })}
+            results={results}
+            value={value}
+            {...this.props}
+          />
+        </Grid.Column>
+        <Grid.Column width={10}>
+          <Segment>
+            <Header>State</Header>
+            <pre style={{ overflowX: "auto" }}>
+              {JSON.stringify(this.state, null, 2)}
+            </pre>
+            <Header>Options</Header>
+            <pre style={{ overflowX: "auto" }}>
+              {JSON.stringify(source, null, 2)}
+            </pre>
+          </Segment>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
-
-export default SearchUsers;
