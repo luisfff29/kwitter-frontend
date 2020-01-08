@@ -5,7 +5,15 @@ class MessageForm extends React.Component {
   render() {
     return (
       <Form reply>
-        <Form.TextArea id="textarea" />
+        <Form.TextArea
+          id="textarea"
+          placeholder="Type a message..."
+          style={{
+            backgroundColor: "transparent",
+            borderColor: "lightblue",
+            color: "white"
+          }}
+        />
         <Button
           id="button"
           content="Add Reply"
