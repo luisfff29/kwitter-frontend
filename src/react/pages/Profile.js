@@ -1,13 +1,21 @@
 import React from "react";
-import { Menu } from "../components";
+import { Menus, ProfileCard, MyMessages } from "../components";
 import { userIsAuthenticated } from "../HOCs";
+import { Grid } from "../components";
 
 class Profile extends React.Component {
   render() {
     return (
       <>
-        <Menu isAuthenticated={this.props.isAuthenticated} />
-        <h2>Profile</h2>
+        <Menus isAuthenticated={this.props.isAuthenticated} />
+        <Grid columns={3}>
+          <Grid.Column>
+            <ProfileCard />
+          </Grid.Column>
+          <Grid.Column>
+            <MyMessages />
+          </Grid.Column>
+        </Grid>
       </>
     );
   }
