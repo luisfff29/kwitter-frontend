@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from ".";
-import { SearchUsers } from "../components";
 import { withAsyncAction } from "../HOCs";
 import { Sidebar, Menu, Icon } from "../components";
 
@@ -34,7 +33,6 @@ class Menus extends React.Component {
         </h1>
         {this.props.isAuthenticated && (
           <div style={{ display: "flex", margin: "auto 0 auto auto" }}>
-            <SearchUsers />
             <Link to="/feed">
               <Menu.Item>
                 <Icon name="home" />
