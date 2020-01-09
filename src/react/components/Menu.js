@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from ".";
-import "./Menu.css";
+import { SearchUsers } from "../components";
 import { withAsyncAction } from "../HOCs";
+import { Sidebar, Menu, Icon } from "../components";
 
-class Menu extends React.Component {
+class Menus extends React.Component {
   handleLogout = event => {
     event.preventDefault();
     this.props.logout();
@@ -11,21 +12,64 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <div id="menu">
-        <h1>Kwitter</h1>
+      <Sidebar
+        as={Menu}
+        direction="top"
+        icon="labeled"
+        inverted
+        visible
+        width="thin"
+        style={{ backgroundColor: "#171725", position: "fixed" }}
+      >
+        <h1
+          style={{
+            fontFamily: "Bangers",
+            fontSize: "50px",
+            backgroundColor: "#171725",
+            color: "white",
+            margin: "10px"
+          }}
+        >
+          Kwitter
+        </h1>
         {this.props.isAuthenticated && (
-          <div id="menu-links">
-            <Link to="/feed">Home</Link>
-            <Link to="/profile/:username">Profile</Link>
-            <Link to="/messagefeed">Message Feed</Link>
+          <div style={{ display: "flex", margin: "auto 0 auto auto" }}>
+            <SearchUsers />
+            <Link to="/feed">
+              <Menu.Item>
+                <Icon name="home" />
+                Home
+              </Menu.Item>
+            </Link>
+            <Link to="/profile/luisf">
+              <Menu.Item>
+                <Icon name="user" />
+                Profile
+              </Menu.Item>
+            </Link>
+            <Link to="/users">
+              <Menu.Item>
+                <Icon name="address book" />
+                Users
+              </Menu.Item>
+            </Link>
+            <Link to="/messagefeed">
+              <Menu.Item>
+                <Icon name="comments" />
+                Message Feed
+              </Menu.Item>
+            </Link>
             <Link to="/" onClick={this.handleLogout}>
-              Logout
+              <Menu.Item>
+                <Icon name="sign out" />
+                Logout
+              </Menu.Item>
             </Link>
           </div>
         )}
-      </div>
+      </Sidebar>
     );
   }
 }
 
-export default withAsyncAction("auth", "logout")(Menu);
+export default withAsyncAction("auth", "logout")(Menus);
