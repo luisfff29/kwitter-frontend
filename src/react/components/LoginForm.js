@@ -4,16 +4,6 @@ import { withAsyncAction } from "../HOCs";
 import { Link } from "../components";
 import "./LoginForm.css";
 
-// _____Where the user will be rendered!!!!!!_____
-// const loadUsers = () =>
-//   fetch("")
-//     .then()
-
-// _____Where the user will be rendered!!!!!!_____
-// const loadUsers = () =>
-//   fetch("")
-//     .then()
-
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
 
