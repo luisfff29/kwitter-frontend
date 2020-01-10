@@ -15,7 +15,7 @@ class MyMessages extends React.Component {
               <Feed.Content>
                 <Feed.Date content="1 day ago" />
                 <Feed.Summary>
-                  You added <a>Jenny Hess</a> to your <a>coworker</a> group.
+                  You added <a href = "#">Jenny Hess</a> to your <a href = "#">coworker</a> group.
                 </Feed.Summary>
               </Feed.Content>
             </Feed.Event>
