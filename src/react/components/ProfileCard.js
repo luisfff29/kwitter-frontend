@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Image, Icon } from "../components";
-import { getUser } from "../../redux/actionCreators";
+//import { getUser } from "../../redux/actionCreators";
 import { Spinner } from "../components"
 import { withAsyncAction } from "../HOCs";
 
