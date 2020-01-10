@@ -4,7 +4,7 @@ import { GETUSER } from "../actionTypes";
 const url = domain + "/users";
 
 export const getUser = username => dispatch => {
-    dispatch({ type: GETUSER.START })
+    dispatch({ type: GETUSER.START });
 
     return fetch(url + "/" + username, {
         method: "GET",
@@ -12,13 +12,12 @@ export const getUser = username => dispatch => {
     })
     .then(handleJsonResponse)
         .then(result => {
-            return dispatch ({
+            return dispatch({
                 type: GETUSER.SUCCESS,
                 payload: result
         });
     })
     .catch(err => {
-        return Promise.reject(dispatchEvent({ type:
-        GETUSER.FAIL, payload: err}))
+        return Promise.reject(dispatch({ type: GETUSER.FAIL, payload: err}))
     });
 };

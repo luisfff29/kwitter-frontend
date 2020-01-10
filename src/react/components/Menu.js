@@ -39,7 +39,7 @@ class Menus extends React.Component {
                 Home
               </Menu.Item>
             </Link>
-            <Link to="/profile/luisf">
+            <Link to="/profile/getUser">
               <Menu.Item>
                 <Icon name="user" />
                 Profile

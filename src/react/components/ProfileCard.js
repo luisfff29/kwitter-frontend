@@ -1,39 +1,42 @@
 import React from "react";
 import { Card, Image, Icon } from "../components";
+import { getUser } from "../../redux/actionCreators";
+import { Spinner } from "../components"
+import { withAsyncAction } from "../HOCs";
 
 class ProfileCard extends React.Component {
-  state = { user: [] };
 
-  componentDidMount = () => {
-    fetch("https://kwitter-api.herokuapp.com/users/luisf")
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ user: data.user });
-      });
-  };
+  componentDidMount() {
+    this.props.getUser("Cveal063")
+  }
 
   render() {
+    if (this.props.result === null) {
+      return <Spinner name = "circle" color = "red" />;    
+    }
+
+    const user = this.props.result.user;
+    
     return (
       <Card>
         <Image
           src={
-            this.state.user.pictureLocation !== null
-              ? "https://kwitter-api.herokuapp.com" +
-                this.state.user.pictureLocation
+            user.pictureLocation 
+              ? user.pictureLocation
               : "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
           }
           wrapped
           ui={false}
         />
         <Card.Content>
-          <Card.Header>{this.state.user.displayName}</Card.Header>
+          <Card.Header>{user.displayName}</Card.Header>
           <Card.Meta>
-            <span className="date">{this.state.user.createdAt}</span>
+            <span className="date">{user.createdAt}</span>
           </Card.Meta>
-          <Card.Description>{this.state.user.about}</Card.Description>
+          <Card.Description>{user.about}</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Icon name="user" />
+          <Icon name="friends" />
           22 Friends
         </Card.Content>
       </Card>
@@ -41,4 +44,14 @@ class ProfileCard extends React.Component {
   }
 }
 
-export default ProfileCard;
+/*
+mapStateToProps
+loading 
+error
+result
+
+mapdispatchToProps
+getUser
+*/
+
+export default withAsyncAction("users", "getUser") (ProfileCard);
