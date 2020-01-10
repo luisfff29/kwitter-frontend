@@ -1,5 +1,5 @@
 import React from "react";
-import { Menus, ProfileCard, MyMessages } from "../components";
+import { Menus, ProfileCard, MyMessages, ThisIsTheBottom } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import { Grid } from "../components";
 
@@ -8,14 +8,16 @@ class Profile extends React.Component {
     return (
       <>
         <Menus isAuthenticated={this.props.isAuthenticated} />
-        <Grid columns={3}>
+        <Grid centered columns={3}>
           <Grid.Column>
             <ProfileCard />
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column width={7}>
             <MyMessages />
           </Grid.Column>
+          <Grid.Column></Grid.Column>
         </Grid>
+        <ThisIsTheBottom />
       </>
     );
   }

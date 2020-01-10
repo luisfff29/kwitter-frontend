@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Image, Icon } from "../components";
+import "./DarkMode.css";
 
 class ProfileCard extends React.Component {
   state = { user: [] };
@@ -22,19 +23,21 @@ class ProfileCard extends React.Component {
                 this.state.user.pictureLocation
               : "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
           }
-          wrapped
-          ui={false}
         />
-        <Card.Content>
-          <Card.Header>{this.state.user.displayName}</Card.Header>
+        <Card.Content className="dark-mode2">
+          <Card.Header className="white">
+            {this.state.user.displayName}
+          </Card.Header>
           <Card.Meta>
-            <span className="date">{this.state.user.createdAt}</span>
+            <span className="date gray">{this.state.user.createdAt}</span>
           </Card.Meta>
-          <Card.Description>{this.state.user.about}</Card.Description>
+          <Card.Description className="white">
+            {this.state.user.about}
+          </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <Icon name="user" />
-          22 Friends
+        <Card.Content extra className="dark-mode2">
+          <Icon name="user" className="gray" />
+          <spam className="gray">22 Friends</spam>
         </Card.Content>
       </Card>
     );
