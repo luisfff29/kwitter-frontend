@@ -32,5 +32,6 @@ export {
   Search,
   Segment,
   Image,
-  Modal
+  Modal,
+  Divider
 } from "semantic-ui-react";

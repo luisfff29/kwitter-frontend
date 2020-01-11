@@ -16,7 +16,7 @@ class MessageFeed extends React.Component {
         <Menus isAuthenticated={this.props.isAuthenticated} />
         <Comment.Group size="large" className="dark-mode">
           <MessageForm />
-          <Header as="h2" dividing className="white">
+          <Header as="h2" dividing className="white" textAlign="center">
             Message List
           </Header>
           <MessageList />
