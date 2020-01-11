@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Card, Icon, Image, Modal } from "../components";
 import "./DarkMode.css";
+import { MostLikedMessages, MostRecentUsers } from "./TheTopMost";
 
 class FeedCode extends Component {
   render() {
@@ -51,22 +52,16 @@ class FeedCode extends Component {
 
     return (
       <Grid verticalAlign="middle" columns={4} centered>
-        <Grid.Row>
+        <Grid.Row stretched>
           <Grid.Column>
-            <Modal
-              trigger={card1}
-              closeIcon
-              header="Top 3 most liked messages"
-              content="Call Benjamin regarding the reports."
-            />
+            <Modal trigger={card1} size="mini" closeIcon>
+              <MostLikedMessages />
+            </Modal>
           </Grid.Column>
           <Grid.Column>
-            <Modal
-              trigger={card2}
-              closeIcon
-              header="Reminder!"
-              content="Call Benjamin regarding the reports."
-            />
+            <Modal trigger={card2} size="mini" closeIcon>
+              <MostRecentUsers />
+            </Modal>
             <br />
             <Modal
               trigger={card3}

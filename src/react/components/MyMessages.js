@@ -22,7 +22,7 @@ class MyMessages extends React.Component {
         </Card.Content>
         {this.state.comment === [] ? (
           this.state.comment.map(message => (
-            <Card.Content>
+            <Card.Content key={message.id}>
               <Comment.Group>
                 <Comment>
                   <Comment.Avatar src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" />

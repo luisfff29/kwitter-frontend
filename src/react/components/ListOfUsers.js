@@ -22,31 +22,31 @@ class ListOfUsers extends React.Component {
             key={index}
             raised
             image={
-              <Link to={"/profile/" + person.username} className="dark-mode2">
-                <Item.Group>
-                  <Item>
-                    <Item.Image
-                      style={{
-                        width: "60px",
-                        height: "60px",
-                        overflow: "hidden"
-                      }}
-                      src={
-                        person.pictureLocation
-                          ? "https://kwitter-api.herokuapp.com" +
-                            person.pictureLocation
-                          : "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
-                      }
-                    />
-                    <Item.Content verticalAlign="middle">
-                      <Item.Header className="white">
+              <Item.Group className="dark-mode2">
+                <Item>
+                  <Item.Image
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      overflow: "hidden"
+                    }}
+                    src={
+                      person.pictureLocation
+                        ? "https://kwitter-api.herokuapp.com" +
+                          person.pictureLocation
+                        : "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
+                    }
+                  />
+                  <Item.Content verticalAlign="middle">
+                    <Item.Header className="white">
+                      <Link to={"/profile/" + person.username}>
                         {person.displayName}
-                      </Item.Header>
-                      <p className="gray">{person.username}</p>
-                    </Item.Content>
-                  </Item>
-                </Item.Group>
-              </Link>
+                      </Link>
+                    </Item.Header>
+                    <p className="gray">{person.username}</p>
+                  </Item.Content>
+                </Item>
+              </Item.Group>
             }
           />
         ))}
