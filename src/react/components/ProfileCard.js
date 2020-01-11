@@ -28,7 +28,7 @@ class ProfileCard extends React.Component {
           }
         />
         <Card.Content className="dark-mode2">
-          <Card.Header className-"white">
+          <Card.Header className="white">
             {user.displayName}
           </Card.Header>
           <Card.Meta>
