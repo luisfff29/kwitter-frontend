@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from ".";
 import { Item, Card } from "../components";
+import "./DarkMode.css";
 
 class ListOfUsers extends React.Component {
-  state = { users: [], isLoading: false, value: "" };
+  state = { users: [] };
 
   componentDidMount = () => {
     fetch("https://kwitter-api.herokuapp.com/users")
@@ -15,13 +16,13 @@ class ListOfUsers extends React.Component {
 
   render() {
     return (
-      <Card.Group itemsPerRow={4} style={{ margin: "0 auto" }}>
+      <Card.Group itemsPerRow={4}>
         {this.state.users.map((person, index) => (
           <Card
             key={index}
             raised
             image={
-              <Link to={"/profile/" + person.username}>
+              <Link to={"/profile/" + person.username} className="dark-mode2">
                 <Item.Group>
                   <Item>
                     <Item.Image
@@ -38,8 +39,10 @@ class ListOfUsers extends React.Component {
                       }
                     />
                     <Item.Content verticalAlign="middle">
-                      <Item.Header>{person.displayName}</Item.Header>
-                      <p style={{ color: "gray" }}>{person.username}</p>
+                      <Item.Header className="white">
+                        {person.displayName}
+                      </Item.Header>
+                      <p className="gray">{person.username}</p>
                     </Item.Content>
                   </Item>
                 </Item.Group>

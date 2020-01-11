@@ -1,7 +1,7 @@
 import React from "react";
 import "./MessageList.css";
-import PopupLikes from "./PopupLikes";
-import { Comment } from "../components";
+import { Comment, PopupLikes } from "../components";
+import "./DarkMode.css";
 
 class MessageList extends React.Component {
   state = { messages: [] };
@@ -31,13 +31,13 @@ class MessageList extends React.Component {
           src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
         />
         <Comment.Content>
-          <Comment.Author style={{ color: "white" }} as="a">
+          <Comment.Author as="a" className="white">
             {comment.username}
           </Comment.Author>
-          <Comment.Metadata style={{ color: "gray" }}>
+          <Comment.Metadata className="gray">
             {new Date(comment.createdAt).toLocaleString()}
           </Comment.Metadata>
-          <Comment.Text style={{ color: "white" }}>{comment.text}</Comment.Text>
+          <Comment.Text className="white">{comment.text}</Comment.Text>
           <PopupLikes atr={comment.likes} />
         </Comment.Content>
       </Comment>

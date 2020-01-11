@@ -18,7 +18,7 @@ class Menus extends React.Component {
         inverted
         visible
         width="thin"
-        style={{ backgroundColor: "#171725", position: "fixed" }}
+        style={{ backgroundColor: "#171725" }}
       >
         <h1
           style={{

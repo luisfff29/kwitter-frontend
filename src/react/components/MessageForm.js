@@ -1,19 +1,12 @@
 import React from "react";
 import { Button, Form } from "../components";
+import "./DarkMode.css";
 
 class MessageForm extends React.Component {
   render() {
     return (
       <Form reply>
-        <Form.TextArea
-          id="textarea"
-          placeholder="Type a message..."
-          style={{
-            backgroundColor: "transparent",
-            borderColor: "lightblue",
-            color: "white"
-          }}
-        />
+        <Form.TextArea id="textarea" placeholder="Type a message..." />
         <Button
           id="button"
           content="Add Reply"
