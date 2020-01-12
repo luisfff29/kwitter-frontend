@@ -64,7 +64,7 @@ export class MostRecentUsers extends Component {
         <Modal.Header>Top 5 most recent users</Modal.Header>
         <Modal.Content>
           {this.state.users.map(user => (
-            <Item.Group divided>
+            <Item.Group divided key={user.username}>
               <Item>
                 <Item.Image
                   size="tiny"

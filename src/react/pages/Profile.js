@@ -8,11 +8,11 @@ class Profile extends React.Component {
     return (
       <>
         <Menus isAuthenticated={this.props.isAuthenticated} />
-        <Grid centered columns={3}>
-          <Grid.Column>
+        <Grid centered>
+          <Grid.Column width={4}>
             <ProfileCard />
           </Grid.Column>
-          <Grid.Column width={7}>
+          <Grid.Column width={8}>
             <MyMessages />
           </Grid.Column>
           <Grid.Column></Grid.Column>

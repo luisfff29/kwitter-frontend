@@ -15,6 +15,7 @@ class MyMessages extends React.Component {
   };
 
   render() {
+    const defaultAvatar = require("./images/default-avatar.png");
     return (
       <Card fluid>
         <Card.Content>
@@ -25,7 +26,7 @@ class MyMessages extends React.Component {
             <Card.Content key={message.id}>
               <Comment.Group>
                 <Comment>
-                  <Comment.Avatar src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" />
+                  <Comment.Avatar src={defaultAvatar} />
                   <Comment.Content>
                     <Comment.Author as="a">{message.username}</Comment.Author>
                     <Comment.Metadata className="gray">

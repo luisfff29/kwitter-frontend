@@ -15,11 +15,12 @@ class ListOfUsers extends React.Component {
   };
 
   render() {
+    const defaultAvatar = require("./images/default-avatar.png");
     return (
       <Card.Group itemsPerRow={4}>
-        {this.state.users.map((person, index) => (
+        {this.state.users.map(person => (
           <Card
-            key={index}
+            key={person.username}
             raised
             image={
               <Item.Group className="dark-mode2">
@@ -34,7 +35,7 @@ class ListOfUsers extends React.Component {
                       person.pictureLocation
                         ? "https://kwitter-api.herokuapp.com" +
                           person.pictureLocation
-                        : "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
+                        : defaultAvatar
                     }
                   />
                   <Item.Content verticalAlign="middle">
