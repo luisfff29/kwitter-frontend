@@ -15,7 +15,7 @@ class FeedCode extends Component {
         <Image src={pic1} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="mail" />
-          <spam className="gray">Top 3 Messages</spam>
+          <span className="gray">Top 3 Messages</span>
         </Card.Content>
       </Card>
     );
@@ -25,7 +25,7 @@ class FeedCode extends Component {
         <Image src={pic2} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="users" />
-          <spam className="gray"> 3 New Users</spam>
+          <span className="gray"> 3 New Users</span>
         </Card.Content>
       </Card>
     );
@@ -35,7 +35,7 @@ class FeedCode extends Component {
         <Image src={pic3} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="like" />
-          <spam className="gray">5 BFFs</spam>
+          <span className="gray">5 BFFs</span>
         </Card.Content>
       </Card>
     );
@@ -45,7 +45,7 @@ class FeedCode extends Component {
         <Image src={pic4} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="user plus" />
-          <spam className="gray">5 Friends</spam>
+          <span className="gray">5 Friends</span>
         </Card.Content>
       </Card>
     );

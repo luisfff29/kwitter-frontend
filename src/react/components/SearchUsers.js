@@ -40,7 +40,6 @@ class SearchUsers extends Component {
 
   render() {
     const { isLoading, value, results } = this.state;
-
     const resultRenderer = ({ pictureLocation, username, displayName }) => [
       pictureLocation && (
         <img
@@ -52,8 +51,8 @@ class SearchUsers extends Component {
         />
       ),
       <div key="content" className="content">
-        {displayName && <div className="title">{displayName}</div>}
-        {username && <div className="description">{username}</div>}
+        {displayName && <div className="displayName">{displayName}</div>}
+        {username && <div className="username">{username}</div>}
       </div>
     ];
 

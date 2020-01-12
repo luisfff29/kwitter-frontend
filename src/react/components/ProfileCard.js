@@ -11,6 +11,8 @@ class ProfileCard extends React.Component {
   }
 
   render() {
+    const defaultAvatar = require("./images/default-avatar.png");
+
     if (this.props.result === null) {
       return <Spinner name="circle" color="red" />;
     }
@@ -20,22 +22,20 @@ class ProfileCard extends React.Component {
     return (
       <Card>
         <Image
-          src={
-            user.pictureLocation
-              ? user.pictureLocation
-              : "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
-          }
+          src={user.pictureLocation ? user.pictureLocation : defaultAvatar}
         />
         <Card.Content className="dark-mode2">
           <Card.Header className="white">{user.displayName}</Card.Header>
           <Card.Meta>
-            <span className="date gray">{user.createdAt}</span>
+            <span className="gray">
+              {new Date(user.createdAt).toLocaleString()}
+            </span>
           </Card.Meta>
           <Card.Description className="white">{user.about}</Card.Description>
         </Card.Content>
         <Card.Content extra className="dark-mode2">
-          <Icon name="friends" className="gray" />
-          <spam className="gray">22 Friends</spam>
+          <Icon name="users" className="gray" />
+          <span className="gray">22 Friends</span>
         </Card.Content>
       </Card>
     );
