@@ -21,7 +21,7 @@ class PopupLikes extends Component {
     return (
       <Popup
         trigger={
-          <Feed.Like id="like">
+          <Feed.Like style={{ cursor: "pointer" }}>
             <Icon name="like" />
             {this.props.atr.length} Like(s)
           </Feed.Like>

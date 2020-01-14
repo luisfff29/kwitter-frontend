@@ -8,7 +8,7 @@ class CreateUser extends React.Component {
       <>
         <h1
           style={{
-            marginTop: "-80px",
+            marginTop: "-100px",
             fontFamily: "Bangers",
             fontSize: "70px",
             backgroundColor: "#171725",
