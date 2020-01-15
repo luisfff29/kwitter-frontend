@@ -24,7 +24,7 @@ export const getMessages = () => dispatch => {
     });
 };
 
-export const createMessage = messageText => (dispatch, getState) => {
+export const _createMessage = messageText => (dispatch, getState) => {
   dispatch({ type: CREATEMESSAGE.START });
 
   const token = getState().auth.login.result.token;
@@ -48,6 +48,14 @@ export const createMessage = messageText => (dispatch, getState) => {
     });
 };
 
+//chained action creators
+//createMessage -> getMessages
+export const createMessage = messageText => (dispatch, getState) => {
+  return dispatch(_createMessage(messageText)).then(() =>
+    dispatch(getMessages())
+  );
+};
+
 export const getPersonalMessages = username => dispatch => {
   dispatch({ type: GETPERSONALMESSAGES.START });
 
@@ -68,7 +76,10 @@ export const getPersonalMessages = username => dispatch => {
     });
 };
 
-export const deleteMessages = messageId => (dispatch, getState) => {
+export const _deleteMessages = (messageId, username) => (
+  dispatch,
+  getState
+) => {
   dispatch({ type: DELETEMESSAGES.START });
 
   const token = getState().auth.login.result.token;
@@ -89,4 +100,12 @@ export const deleteMessages = messageId => (dispatch, getState) => {
         dispatch({ type: DELETEMESSAGES.FAIL, payload: err })
       );
     });
+};
+
+//chained action creators
+//deleteMessages -> getPersonalMessages
+export const deleteMessages = (messageId, username) => (dispatch, getState) => {
+  return dispatch(_deleteMessages(messageId)).then(() =>
+    dispatch(getPersonalMessages(username))
+  );
 };

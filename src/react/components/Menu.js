@@ -20,17 +20,19 @@ class Menus extends React.Component {
         width="thin"
         style={{ backgroundColor: "#171725" }}
       >
-        <h1
-          style={{
-            fontFamily: "Bangers",
-            fontSize: "50px",
-            backgroundColor: "#171725",
-            color: "white",
-            margin: "10px"
-          }}
-        >
-          Kwitter
-        </h1>
+        <Link to="/feed">
+          <h1
+            style={{
+              fontFamily: "Bangers",
+              fontSize: "50px",
+              backgroundColor: "#171725",
+              color: "white",
+              margin: "10px"
+            }}
+          >
+            Kwitter
+          </h1>
+        </Link>
         {this.props.isAuthenticated && (
           <div style={{ display: "flex", margin: "auto 0 auto auto" }}>
             <Link to="/feed">

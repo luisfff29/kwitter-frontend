@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Comment, Dimmer, Loader } from "../components";
 import "./DarkMode.css";
 import { withAsyncAction } from "../HOCs";
-import { MyMessageDeleted } from "../components";
+import { DeleteButton } from "../components";
 
 class MyMessages extends React.Component {
   componentDidMount = () => {
@@ -42,7 +42,10 @@ class MyMessages extends React.Component {
                     </Comment.Metadata>
                     <Comment.Text className="white">
                       {message.text}
-                      <MyMessageDeleted id={message.id} />
+                      <DeleteButton
+                        id={message.id}
+                        username={message.username}
+                      />
                     </Comment.Text>
                   </Comment.Content>
                 </Comment>

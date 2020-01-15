@@ -1,7 +1,10 @@
 import React from "react";
-import { Comment, PopupLikes, Dimmer, Loader } from "../components";
+import { Spinner } from ".";
+import { Comment, PopupLikes, Dimmer } from "../components";
 import "./DarkMode.css";
 import { withAsyncAction } from "../HOCs";
+
+const defaultAvatar = require("./images/default-avatar.png");
 
 class MessageList extends React.Component {
   componentDidMount = () => {
@@ -9,12 +12,10 @@ class MessageList extends React.Component {
   };
 
   render() {
-    const defaultAvatar = require("./images/default-avatar.png");
-
     if (this.props.result === null) {
       return (
         <Dimmer active>
-          <Loader size="big">Loading...</Loader>
+          <Spinner name="pacman" color="white" />
         </Dimmer>
       );
     }
@@ -35,7 +36,11 @@ class MessageList extends React.Component {
             {new Date(comment.createdAt).toLocaleString()}
           </Comment.Metadata>
           <Comment.Text className="white">{comment.text}</Comment.Text>
-          <PopupLikes atr={comment.likes} />
+          <PopupLikes
+            atr={comment.likes}
+            id={comment.id}
+            li={comment.likes.map(like => like.id)}
+          />
         </Comment.Content>
       </Comment>
     ));
