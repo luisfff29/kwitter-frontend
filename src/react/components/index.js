@@ -11,7 +11,7 @@ export { default as MyMessages } from "./MyMessages";
 export { default as ProfileCard } from "./ProfileCard";
 export { default as SearchUsers } from "./SearchUsers";
 export { default as ThisIsTheBottom } from "./ThisIsTheBottom";
-export { default as MyMessageDeleted } from "./MyMessageDeleted";
+export { default as DeleteButton } from "./DeleteButton";
 
 // components from other packages
 export { Switch, Route, Link } from "react-router-dom";

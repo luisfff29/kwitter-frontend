@@ -38,36 +38,35 @@ class SearchUsers extends Component {
     }, 300);
   };
 
-  render() {
-    const { isLoading, value, results } = this.state;
-    const resultRenderer = ({ pictureLocation, username, displayName }) => [
-      pictureLocation && (
-        <img
-          alt=""
-          key="image"
-          className="image"
-          src={"https://kwitter-api.herokuapp.com" + pictureLocation}
-          style={{ width: "50px", height: "50px" }}
-        />
-      ),
-      <div key="content" className="content">
-        {displayName && <div className="displayName">{displayName}</div>}
-        {username && <div className="username">{username}</div>}
-      </div>
-    ];
+  resultRenderer = ({ pictureLocation, username, displayName }) => [
+    pictureLocation && (
+      <img
+        alt=""
+        key="image"
+        className="image"
+        src={"https://kwitter-api.herokuapp.com" + pictureLocation}
+        style={{ width: "50px", height: "50px" }}
+      />
+    ),
+    <div key="content" className="content">
+      {displayName && <div className="displayName">{displayName}</div>}
+      {username && <div className="username">{username}</div>}
+    </div>
+  ];
 
+  render() {
     return (
       <Search
         style={{ paddingBottom: "30px" }}
         placeholder="Find a user"
-        resultRenderer={resultRenderer}
-        loading={isLoading}
+        resultRenderer={this.resultRenderer}
+        loading={this.state.isLoading}
         onResultSelect={this.handleResultSelect}
         onSearchChange={_.debounce(this.handleSearchChange, 500, {
           leading: true
         })}
-        results={results}
-        value={value}
+        results={this.state.results}
+        value={this.state.value}
         {...this.props}
       />
     );

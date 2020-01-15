@@ -1,24 +1,31 @@
 import React from "react";
 import { Link } from ".";
-import { Item, Card } from "../components";
+import { Spinner } from ".";
+import { Item, Card, Dimmer } from "../components";
 import "./DarkMode.css";
+import { withAsyncAction } from "../HOCs";
 
 class ListOfUsers extends React.Component {
-  state = { users: [] };
-
   componentDidMount = () => {
-    fetch("https://kwitter-api.herokuapp.com/users")
-      .then(response => response.json())
-      .then(data => {
-        this.setState({ users: data.users });
-      });
+    this.props.getListOfUsers();
   };
 
   render() {
     const defaultAvatar = require("./images/default-avatar.png");
+
+    if (this.props.result === null) {
+      return (
+        <Dimmer active>
+          <Spinner name="pacman" color="white" />
+        </Dimmer>
+      );
+    }
+
+    const users = this.props.result.users;
+
     return (
       <Card.Group itemsPerRow={4}>
-        {this.state.users.map(person => (
+        {users.map(person => (
           <Card
             key={person.username}
             raised
@@ -56,4 +63,4 @@ class ListOfUsers extends React.Component {
   }
 }
 
-export default ListOfUsers;
+export default withAsyncAction("users", "getListOfUsers")(ListOfUsers);
