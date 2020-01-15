@@ -1,41 +1,49 @@
 import React from "react";
-import { Card, Image, Icon } from "../components";
+import { Card, Image, Dimmer, Loader } from "../components";
 import "./DarkMode.css";
 //import { getUser } from "../../redux/actionCreators";
-import { Spinner } from "../components";
 import { withAsyncAction } from "../HOCs";
 
 class ProfileCard extends React.Component {
-  componentDidMount() {
-    this.props.getUser("Cveal063");
-  }
+  componentDidMount = () => {
+    this.props.getUser("luisf");
+  };
 
   render() {
     const defaultAvatar = require("./images/default-avatar.png");
 
     if (this.props.result === null) {
-      return <Spinner name="circle" color="red" />;
+      return (
+        <Dimmer active>
+          <Loader size="big">Loading...</Loader>
+        </Dimmer>
+      );
     }
 
     const user = this.props.result.user;
 
     return (
-      <Card>
+      <Card style={{ flexGrow: "1", margin: "10px" }}>
         <Image
           src={user.pictureLocation ? user.pictureLocation : defaultAvatar}
         />
         <Card.Content className="dark-mode2">
           <Card.Header className="white">{user.displayName}</Card.Header>
           <Card.Meta>
-            <span className="gray">
-              {new Date(user.createdAt).toLocaleString()}
-            </span>
+            <span className="gray">{user.username} </span>
           </Card.Meta>
-          <Card.Description className="white">{user.about}</Card.Description>
+          <Card.Description className="white">
+            {user.about ? user.about : <i>-Nothing about the user-</i>}
+          </Card.Description>
         </Card.Content>
         <Card.Content extra className="dark-mode2">
-          <Icon name="users" className="gray" />
-          <span className="gray">22 Friends</span>
+          <span className="gray">
+            Joined in: {new Date(user.createdAt).toDateString()}
+          </span>
+          <br />
+          <span className="gray">
+            Last Updated: {new Date(user.updatedAt).toDateString()}
+          </span>
         </Card.Content>
       </Card>
     );

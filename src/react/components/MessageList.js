@@ -1,34 +1,31 @@
 import React from "react";
-import "./MessageList.css";
-import { Comment, PopupLikes } from "../components";
+import { Comment, PopupLikes, Dimmer, Loader } from "../components";
 import "./DarkMode.css";
+import { withAsyncAction } from "../HOCs";
 
 class MessageList extends React.Component {
-  state = { messages: [] };
-
   componentDidMount = () => {
-    fetch("https://kwitter-api.herokuapp.com/messages")
-      .then(response => response.json())
-      .then(data => {
-        const newDataMessages = [...data.messages];
-        data.messages.map((user, index) =>
-          fetch("https://kwitter-api.herokuapp.com/users/" + user.username)
-            .then(res => res.json())
-            .then(prom => {
-              newDataMessages[index].pictureLocation =
-                "https://kwitter-api.herokuapp.com" + prom.user.pictureLocation;
-            })
-        );
-        this.setState({ messages: newDataMessages });
-      });
+    this.props.getMessages();
   };
 
   render() {
-    return this.state.messages.map(comment => (
+    const defaultAvatar = require("./images/default-avatar.png");
+
+    if (this.props.result === null) {
+      return (
+        <Dimmer active>
+          <Loader size="big">Loading...</Loader>
+        </Dimmer>
+      );
+    }
+
+    const messages = this.props.result.messages;
+
+    return messages.map(comment => (
       <Comment key={comment.id}>
         <Comment.Avatar
-          id="avatar"
-          src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
+          style={{ height: "60px", width: "60px", marginRight: "10px" }}
+          src={defaultAvatar}
         />
         <Comment.Content>
           <Comment.Author as="a" className="white">
@@ -45,4 +42,4 @@ class MessageList extends React.Component {
   }
 }
 
-export default MessageList;
+export default withAsyncAction("messages", "getMessages")(MessageList);

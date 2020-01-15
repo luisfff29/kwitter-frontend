@@ -5,7 +5,6 @@ import {
   Form,
   Message,
   Icon,
-  Grid,
   Image,
   Checkbox
 } from "semantic-ui-react";
@@ -15,11 +14,9 @@ class CreateUserForm extends Component {
   render() {
     const backgroundPic = require("./images/backgroundDarkMode.jpg");
     return (
-      <Grid centered columns={2}>
-        <Grid.Column width={7}>
-          <Image size="large" src={backgroundPic} />
-        </Grid.Column>
-        <Grid.Column width={6}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image size="large" src={backgroundPic} />
+        <div>
           <Message
             className="dark-mode2 white"
             attached
@@ -72,8 +69,8 @@ class CreateUserForm extends Component {
             Already signed up?&nbsp;<Link to="/">Login here</Link>
             &nbsp;instead.
           </Message>
-        </Grid.Column>
-      </Grid>
+        </div>
+      </div>
     );
   }
 }

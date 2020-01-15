@@ -11,7 +11,7 @@ class FeedCode extends Component {
     const pic4 = require("./images/suggestionsForYou.png");
 
     const card1 = (
-      <Card>
+      <Card style={{ width: "100%" }}>
         <Image src={pic1} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="mail" />
@@ -21,27 +21,27 @@ class FeedCode extends Component {
     );
 
     const card2 = (
-      <Card>
+      <Card style={{ width: "100%" }}>
         <Image src={pic2} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="users" />
-          <span className="gray"> 3 New Users</span>
+          <span className="gray"> 5 New Users</span>
         </Card.Content>
       </Card>
     );
 
     const card3 = (
-      <Card>
+      <Card style={{ width: "100%" }}>
         <Image src={pic3} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="like" />
-          <span className="gray">5 BFFs</span>
+          <span className="gray">0 BFFs</span>
         </Card.Content>
       </Card>
     );
 
     const card4 = (
-      <Card>
+      <Card style={{ width: "100%" }}>
         <Image src={pic4} />
         <Card.Content extra textAlign="center" className="dark-mode2">
           <Icon className="gray" name="user plus" />
@@ -51,10 +51,10 @@ class FeedCode extends Component {
     );
 
     return (
-      <Grid verticalAlign="middle" columns={4} centered>
-        <Grid.Row stretched>
+      <Grid verticalAlign="middle" columns={3} centered>
+        <Grid.Row>
           <Grid.Column>
-            <Modal trigger={card1} size="mini" closeIcon>
+            <Modal trigger={card1} size="tiny" closeIcon>
               <MostLikedMessages />
             </Modal>
           </Grid.Column>
@@ -67,7 +67,7 @@ class FeedCode extends Component {
               trigger={card3}
               closeIcon
               header="Reminder!"
-              content="Call Benjamin regarding the reports."
+              content="My best friends!"
             />
           </Grid.Column>
           <Grid.Column>
@@ -75,7 +75,7 @@ class FeedCode extends Component {
               trigger={card4}
               closeIcon
               header="Reminder!"
-              content="Call Benjamin regarding the reports."
+              content="Suggestions for you!"
             />
           </Grid.Column>
         </Grid.Row>

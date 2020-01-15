@@ -7,7 +7,7 @@ const ThisIsTheBottom = () => (
     className="gray"
     style={{
       opacity: "0.5",
-      paddingTop: "50vh",
+      paddingTop: "25vh",
       textAlign: "center",
       paddingBottom: "10px"
     }}
