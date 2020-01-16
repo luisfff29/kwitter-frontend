@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from ".";
-import { withAsyncAction } from "../HOCs";
+import { withAsyncAction, connect } from "../HOCs";
 import { Sidebar, Menu, Icon } from "../components";
 
 class Menus extends React.Component {
@@ -41,7 +41,7 @@ class Menus extends React.Component {
                 Home
               </Menu.Item>
             </Link>
-            <Link to="/profile/getUser">
+            <Link to={"/profile/" + this.props.username}>
               <Menu.Item>
                 <Icon name="user" />
                 Profile
@@ -72,4 +72,12 @@ class Menus extends React.Component {
   }
 }
 
-export default withAsyncAction("auth", "logout")(Menus);
+const mapStateToProps = state => {
+  return {
+    username: state.auth.login.result && state.auth.login.result.username
+  };
+};
+
+export default connect(mapStateToProps)(
+  withAsyncAction("auth", "logout")(Menus)
+);

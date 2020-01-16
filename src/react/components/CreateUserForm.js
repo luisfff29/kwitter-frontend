@@ -1,20 +1,34 @@
 import React, { Component } from "react";
 import { Link } from "../components";
-import {
-  Button,
-  Form,
-  Message,
-  Icon,
-  Image,
-  Checkbox
-} from "semantic-ui-react";
+import { withAsyncAction } from "../HOCs";
+import { Button, Form, Message, Icon, Image } from "../components";
 import "./DarkMode.css";
 
 class CreateUserForm extends Component {
+  state = { username: "", displayName: "", password: "" };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleCreateUser = event => {
+    this.props.createNewUser(
+      this.state.username,
+      this.state.displayName,
+      this.state.password
+    );
+  };
+
   render() {
     const backgroundPic = require("./images/backgroundDarkMode.jpg");
     return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "-80px"
+        }}
+      >
         <Image size="large" src={backgroundPic} />
         <div>
           <Message
@@ -30,17 +44,17 @@ class CreateUserForm extends Component {
                 type="text"
                 name="username"
                 placeholder="Username"
-                autoFocus
+                onChange={this.handleChange}
                 required
               />
             </Form.Field>
             <Form.Field>
-              <label className="white">Display name</label>
+              <label className="white">Display Name</label>
               <input
                 type="text"
-                name="displayname"
-                placeholder="Display name"
-                autoFocus
+                name="displayName"
+                placeholder="Display Name"
+                onChange={this.handleChange}
                 required
               />
             </Form.Field>
@@ -50,19 +64,13 @@ class CreateUserForm extends Component {
                 type="password"
                 name="password"
                 placeholder="Password"
+                onChange={this.handleChange}
                 required
               />
             </Form.Field>
-            <Form.Field
-              required
-              control={Checkbox}
-              label={
-                <label className="white">
-                  I agree to the Terms and Conditions
-                </label>
-              }
-            />
-            <Button color="blue">Submit</Button>
+            <Button color="blue" type="submit" onClick={this.handleCreateUser}>
+              Submit
+            </Button>
           </Form>
           <Message className="dark-mode2 white" attached="bottom" warning>
             <Icon name="help" />
@@ -75,4 +83,4 @@ class CreateUserForm extends Component {
   }
 }
 
-export default CreateUserForm;
+export default withAsyncAction("users", "createNewUser")(CreateUserForm);

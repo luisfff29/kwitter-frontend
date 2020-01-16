@@ -1,12 +1,11 @@
 import React from "react";
-import { Card, Image, Dimmer, Loader } from "../components";
+import { Card, Image, Dimmer, Spinner } from "../components";
 import "./DarkMode.css";
-//import { getUser } from "../../redux/actionCreators";
-import { withAsyncAction } from "../HOCs";
+import { withAsyncAction, connect } from "../HOCs";
 
 class ProfileCard extends React.Component {
   componentDidMount = () => {
-    this.props.getUser("luisf");
+    this.props.getUser(this.props.username);
   };
 
   render() {
@@ -15,7 +14,7 @@ class ProfileCard extends React.Component {
     if (this.props.result === null) {
       return (
         <Dimmer active>
-          <Loader size="big">Loading...</Loader>
+          <Spinner name="pacman" color="white" />
         </Dimmer>
       );
     }
@@ -59,5 +58,12 @@ result
 mapdispatchToProps
 getUser
 */
+const mapStateToProps = state => {
+  return {
+    username: state.auth.login.result && state.auth.login.result.username
+  };
+};
 
-export default withAsyncAction("users", "getUser")(ProfileCard);
+export default connect(mapStateToProps)(
+  withAsyncAction("users", "getUser")(ProfileCard)
+);

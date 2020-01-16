@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from ".";
 import { Spinner } from ".";
-import { Item, Card, Dimmer } from "../components";
+import { Item, Card, Dimmer, Image } from "../components";
 import "./DarkMode.css";
 import { withAsyncAction } from "../HOCs";
 
@@ -32,7 +32,7 @@ class ListOfUsers extends React.Component {
             image={
               <Item.Group className="dark-mode2">
                 <Item>
-                  <Item.Image
+                  <Image
                     style={{
                       width: "60px",
                       height: "60px",
@@ -44,6 +44,8 @@ class ListOfUsers extends React.Component {
                           person.pictureLocation
                         : defaultAvatar
                     }
+                    wrapped={false.toString()}
+                    ui={false.toString()}
                   />
                   <Item.Content verticalAlign="middle">
                     <Item.Header className="white">

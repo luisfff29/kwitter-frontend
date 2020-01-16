@@ -1,12 +1,12 @@
 import React from "react";
-import { Card, Comment, Dimmer, Loader } from "../components";
+import { Card, Comment, Dimmer, Spinner } from "../components";
 import "./DarkMode.css";
-import { withAsyncAction } from "../HOCs";
+import { withAsyncAction, connect } from "../HOCs";
 import { DeleteButton } from "../components";
 
 class MyMessages extends React.Component {
   componentDidMount = () => {
-    this.props.getPersonalMessages("luisf");
+    this.props.getPersonalMessages(this.props.username);
   };
 
   render() {
@@ -15,7 +15,7 @@ class MyMessages extends React.Component {
     if (this.props.result === null) {
       return (
         <Dimmer active>
-          <Loader size="big">Loading...</Loader>
+          <Spinner name="pacman" color="white" />
         </Dimmer>
       );
     }
@@ -32,7 +32,13 @@ class MyMessages extends React.Component {
             <Card.Content key={message.id} className="dark-mode1">
               <Comment.Group>
                 <Comment>
-                  <Comment.Avatar src={defaultAvatar} />
+                  <Comment.Avatar
+                    src={
+                      message.pictureLocation
+                        ? message.pictureLocation
+                        : defaultAvatar
+                    }
+                  />
                   <Comment.Content>
                     <Comment.Author as="a" className="white">
                       {message.username}
@@ -62,4 +68,12 @@ class MyMessages extends React.Component {
   }
 }
 
-export default withAsyncAction("messages", "getPersonalMessages")(MyMessages);
+const mapStateToProps = state => {
+  return {
+    username: state.auth.login.result && state.auth.login.result.username
+  };
+};
+
+export default connect(mapStateToProps)(
+  withAsyncAction("messages", "getPersonalMessages")(MyMessages)
+);
