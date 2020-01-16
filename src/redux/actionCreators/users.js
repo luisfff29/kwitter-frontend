@@ -2,6 +2,8 @@ import { domain, jsonHeaders, handleJsonResponse } from "./constants";
 import { GETUSER } from "../actionTypes";
 import { GETLISTOFUSERS } from "../actionTypes";
 import { CREATENEWUSER } from "../actionTypes";
+import { UPDATEUSER } from "../actionTypes";
+import { push } from "connected-react-router";
 
 const url = domain + "/users";
 
@@ -44,7 +46,7 @@ export const getListOfUsers = () => dispatch => {
     });
 };
 
-export const createNewUser = (username, displayName, password) => dispatch => {
+const _createNewUser = (username, displayName, password) => dispatch => {
   dispatch({ type: CREATENEWUSER.START });
 
   return fetch(url, {
@@ -63,5 +65,37 @@ export const createNewUser = (username, displayName, password) => dispatch => {
       return Promise.reject(
         dispatch({ type: CREATENEWUSER.FAIL, payload: err })
       );
+    });
+};
+
+export const createNewUser = (username, displayName, password) => dispatch => {
+  return dispatch(_createNewUser(username, displayName, password)).then(() => {
+    dispatch(push("/"));
+  });
+};
+
+export const updateUser = (password, about, displayName) => (
+  dispatch,
+  getState
+) => {
+  dispatch({ type: UPDATEUSER.START });
+
+  const username = getState().auth.login.result.username;
+  const token = getState().auth.login.result.token;
+
+  return fetch(url + "/" + username, {
+    method: "PATCH",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    body: JSON.stringify({ password, about, displayName })
+  })
+    .then(handleJsonResponse)
+    .then(result => {
+      return dispatch({
+        type: UPDATEUSER.SUCCESS,
+        payload: result
+      });
+    })
+    .catch(err => {
+      return Promise.reject(dispatch({ type: UPDATEUSER.FAIL, payload: err }));
     });
 };

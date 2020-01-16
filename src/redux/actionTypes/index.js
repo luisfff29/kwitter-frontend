@@ -12,6 +12,7 @@ export const LOGOUT = createActionTypes("LOGOUT");
 export const GETUSER = createActionTypes("GETUSER");
 export const GETLISTOFUSERS = createActionTypes("GETLISTOFUSERS");
 export const CREATENEWUSER = createActionTypes("CREATENEWUSER");
+export const UPDATEUSER = createActionTypes("UPDATEUSER");
 export const GETMESSAGES = createActionTypes("GETMESSAGES");
 export const CREATEMESSAGE = createActionTypes("CREATEMESSAGE");
 export const GETPERSONALMESSAGES = createActionTypes("GETPERSONALMESSAGES");
