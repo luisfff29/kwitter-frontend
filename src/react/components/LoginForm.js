@@ -19,69 +19,66 @@ class LoginForm extends React.Component {
   render() {
     const { loading, error } = this.props;
     return (
-      <>
-        <Segment
-          placeholder
-          textAlign="left"
-          className="dark-mode1"
-          style={{ width: "80%", margin: "0 auto" }}
-        >
-          <Grid columns={2} relaxed="very" stackable>
-            <Grid.Column>
-              <Form onSubmit={this.handleLogin}>
-                <Form.Field>
-                  <label className="white">Username</label>
-                  <input
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    autoFocus
-                    required
-                    onChange={this.handleChange}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label className="white">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    required
-                    onChange={this.handleChange}
-                  />
-                </Form.Field>
-
-                <Button
-                  color="blue"
-                  className="white"
-                  content="Login"
-                  type="submit"
-                  disabled={loading}
+      <Segment
+        placeholder
+        textAlign="left"
+        className="dark-mode1"
+        style={{ width: "80%", margin: "0 auto" }}
+      >
+        <Grid columns={2} relaxed="very" stackable>
+          <Grid.Column>
+            <Form onSubmit={this.handleLogin}>
+              <Form.Field>
+                <label className="white">Username</label>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  autoFocus
+                  required
+                  onChange={this.handleChange}
                 />
-              </Form>
-            </Grid.Column>
+              </Form.Field>
+              <Form.Field>
+                <label className="white">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                  onChange={this.handleChange}
+                />
+              </Form.Field>
 
-            <Grid.Column verticalAlign="middle">
               <Button
-                as={Link}
-                to="/createuser"
                 color="blue"
-                content="Sign up"
-                icon="signup"
-                size="huge"
                 className="white"
+                content="Login"
+                type="submit"
+                disabled={loading}
               />
-            </Grid.Column>
-          </Grid>
+              {loading && <Spinner name="circle" color="white" />}
+              {error && <p style={{ color: "red" }}>{error.message}</p>}
+            </Form>
+          </Grid.Column>
 
-          <Divider vertical className="white">
-            OR
-          </Divider>
-        </Segment>
+          <Grid.Column verticalAlign="middle">
+            <Button
+              as={Link}
+              to="/createuser"
+              color="blue"
+              content="Sign up"
+              icon="signup"
+              size="huge"
+              className="white"
+            />
+          </Grid.Column>
+        </Grid>
 
-        {loading && <Spinner name="circle" color="blue" />}
-        {error && <p style={{ color: "red" }}>{error.message}</p>}
-      </>
+        <Divider vertical className="white">
+          OR
+        </Divider>
+      </Segment>
     );
   }
 }

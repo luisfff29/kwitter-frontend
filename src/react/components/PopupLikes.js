@@ -6,26 +6,19 @@ import { removeLike } from "../../redux/actionCreators";
 
 class PopupLikes extends Component {
   handleAddLike = () => {
-    if (!this.props.atr.some(user => user.username === "luisf")) {
+    if (!this.props.atr.some(user => user.username === this.props.username)) {
       return this.props.addLike(this.props.id);
     }
     return this.props.removeLike(
       Number(
         this.props.atr
-          .filter(user => user.username === "luisf")
+          .filter(user => user.username === this.props.username)
           .map(user => user.id)
       )
     );
   };
 
   render() {
-    console.log(
-      Number(
-        this.props.atr
-          .filter(user => user.username === "luisf")
-          .map(user => user.id)
-      )
-    );
     const WhoLikeIt = props => {
       let totalNames = props.atr2.length;
       let names = props.atr2.map(user => user.username);
@@ -47,7 +40,9 @@ class PopupLikes extends Component {
           <Feed.Like style={{ cursor: "pointer" }} onClick={this.handleAddLike}>
             <Icon
               name="like"
-              {...(this.props.atr.some(user => user.username === "luisf") && {
+              {...(this.props.atr.some(
+                user => user.username === this.props.username
+              ) && {
                 color: "red"
               })}
             />
@@ -67,4 +62,10 @@ const mapDispatchToProps = {
   removeLike
 };
 
-export default connect(null, mapDispatchToProps)(PopupLikes);
+const mapStateToProps = state => {
+  return {
+    username: state.auth.login.result && state.auth.login.result.username
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PopupLikes);

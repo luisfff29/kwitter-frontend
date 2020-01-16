@@ -37,5 +37,7 @@ export {
   Divider,
   Dimmer,
   Loader,
-  Input
+  Input,
+  Message,
+  Checkbox
 } from "semantic-ui-react";
