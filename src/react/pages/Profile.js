@@ -1,5 +1,10 @@
 import React from "react";
-import { Menus, ProfileCard, MyMessages, ThisIsTheBottom } from "../components";
+import {
+  Menus,
+  ProfileCard,
+  ProfileMessages,
+  ThisIsTheBottom
+} from "../components";
 import { userIsAuthenticated } from "../HOCs";
 
 class Profile extends React.Component {
@@ -15,7 +20,7 @@ class Profile extends React.Component {
           }}
         >
           <ProfileCard />
-          <MyMessages />
+          <ProfileMessages />
         </div>
         <ThisIsTheBottom />
       </>

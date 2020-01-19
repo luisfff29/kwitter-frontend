@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "../components";
+import { Link } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Button, Form, Message, Icon, Image } from "../components";
 import "./DarkMode.css";
