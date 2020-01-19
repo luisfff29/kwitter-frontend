@@ -7,11 +7,10 @@ export { default as CreateUserForm } from "./CreateUserForm";
 export { default as PopupLikes } from "./PopupLikes";
 export { default as FeedCode } from "./FeedCode";
 export { default as ListOfUsers } from "./ListOfUsers";
-export { default as MyMessages } from "./MyMessages";
+export { default as ProfileMessages } from "./ProfileMessages";
 export { default as ProfileCard } from "./ProfileCard";
-export { default as SearchUsers } from "./SearchUsers";
 export { default as ThisIsTheBottom } from "./ThisIsTheBottom";
-export { default as DeleteButton } from "./DeleteButton";
+export { default as DeleteMessage } from "./DeleteMessage";
 
 // components from other packages
 export { Switch, Route, Link } from "react-router-dom";

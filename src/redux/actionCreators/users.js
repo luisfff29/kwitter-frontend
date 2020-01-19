@@ -29,7 +29,7 @@ export const getUser = username => dispatch => {
 export const getListOfUsers = () => dispatch => {
   dispatch({ type: GETLISTOFUSERS.START });
 
-  return fetch(url, {
+  return fetch(url + "?limit=1000&offset=0", {
     method: "GET"
   })
     .then(handleJsonResponse)

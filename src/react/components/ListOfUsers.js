@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from ".";
 import { Spinner } from ".";
-import { Item, Card, Dimmer, Image } from "../components";
+import { Item, Grid, Dimmer, Input } from "../components";
 import "./DarkMode.css";
 import { withAsyncAction } from "../HOCs";
 
 class ListOfUsers extends React.Component {
+  state = { search: "" };
+
   componentDidMount = () => {
     this.props.getListOfUsers();
+  };
+
+  handleChange = event => {
+    this.setState({ search: event.target.value });
   };
 
   render() {
@@ -23,29 +29,39 @@ class ListOfUsers extends React.Component {
 
     const users = this.props.result.users;
 
+    const searchedUsers = users.filter(user => {
+      return (
+        user.username.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+        -1
+      );
+    });
+
     return (
-      <Card.Group itemsPerRow={4}>
-        {users.map(person => (
-          <Card
-            key={person.username}
-            raised
-            image={
+      <>
+        <Input
+          icon="search"
+          placeholder="Search a user..."
+          style={{ marginBottom: "50px" }}
+          onChange={this.handleChange}
+        />
+
+        <Grid relaxed columns={4}>
+          {searchedUsers.map(person => (
+            <Grid.Column key={person.username}>
               <Item.Group className="dark-mode2">
                 <Item>
-                  <Image
+                  <Item.Image
                     style={{
                       width: "60px",
                       height: "60px",
                       overflow: "hidden"
                     }}
                     src={
-                      person.pictureLocation
+                      person.pictureLocation !== null
                         ? "https://kwitter-api.herokuapp.com" +
                           person.pictureLocation
                         : defaultAvatar
                     }
-                    wrapped={false.toString()}
-                    ui={false.toString()}
                   />
                   <Item.Content verticalAlign="middle">
                     <Item.Header className="white">
@@ -57,10 +73,10 @@ class ListOfUsers extends React.Component {
                   </Item.Content>
                 </Item>
               </Item.Group>
-            }
-          />
-        ))}
-      </Card.Group>
+            </Grid.Column>
+          ))}
+        </Grid>
+      </>
     );
   }
 }

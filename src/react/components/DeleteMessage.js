@@ -3,7 +3,7 @@ import { Button, Modal } from ".";
 import { connect } from "../HOCs";
 import { deleteMessages } from "../../redux/actionCreators";
 
-class DeleteButton extends React.Component {
+class DeleteMessage extends React.Component {
   state = { open: false };
 
   close = () => {
@@ -53,4 +53,4 @@ const mapDispatchToProps = {
   deleteMessages
 };
 
-export default connect(null, mapDispatchToProps)(DeleteButton);
+export default connect(null, mapDispatchToProps)(DeleteMessage);

@@ -9,7 +9,7 @@ const url = domain + "/messages";
 export const getMessages = () => dispatch => {
   dispatch({ type: GETMESSAGES.START });
 
-  return fetch(url, {
+  return fetch(url + "?limit=1000&offset=0", {
     method: "GET"
   })
     .then(handleJsonResponse)
@@ -24,7 +24,7 @@ export const getMessages = () => dispatch => {
     });
 };
 
-export const _createMessage = messageText => (dispatch, getState) => {
+const _createMessage = messageText => (dispatch, getState) => {
   dispatch({ type: CREATEMESSAGE.START });
 
   const token = getState().auth.login.result.token;
@@ -76,10 +76,7 @@ export const getPersonalMessages = username => dispatch => {
     });
 };
 
-export const _deleteMessages = (messageId, username) => (
-  dispatch,
-  getState
-) => {
+const _deleteMessages = (messageId, username) => (dispatch, getState) => {
   dispatch({ type: DELETEMESSAGES.START });
 
   const token = getState().auth.login.result.token;

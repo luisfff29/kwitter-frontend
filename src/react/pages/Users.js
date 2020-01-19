@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Menus,
-  ListOfUsers,
-  SearchUsers,
-  ThisIsTheBottom
-} from "../components";
+import { Menus, ListOfUsers, ThisIsTheBottom } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 
 class Users extends React.Component {
@@ -12,7 +7,6 @@ class Users extends React.Component {
     return (
       <>
         <Menus isAuthenticated={this.props.isAuthenticated} />
-        <SearchUsers />
         <ListOfUsers />
         <ThisIsTheBottom />
       </>
