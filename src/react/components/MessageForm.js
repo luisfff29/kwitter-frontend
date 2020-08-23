@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Form } from "../components";
 import { connect } from "../HOCs";
 import { createMessage } from "../../redux/actionCreators";
-import "./DarkMode.css";
 
 class MessageForm extends React.Component {
   state = { messageText: "" };
@@ -12,7 +11,7 @@ class MessageForm extends React.Component {
     this.setState({ messageText: "" });
   };
 
-  handleChangeMessage = event => {
+  handleChangeMessage = (event) => {
     this.setState({ messageText: event.target.value });
   };
 
@@ -40,7 +39,7 @@ class MessageForm extends React.Component {
 }
 
 const mapDispatchToProps = {
-  createMessage
+  createMessage,
 };
 
 export default connect(null, mapDispatchToProps)(MessageForm);

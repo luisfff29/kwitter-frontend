@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Image, Dimmer, Spinner } from "../components";
-import "./DarkMode.css";
 import { withAsyncAction, connect } from "../HOCs";
 
 class ProfileCard extends React.Component {
@@ -26,23 +25,19 @@ class ProfileCard extends React.Component {
         <Image
           src={user.pictureLocation ? user.pictureLocation : defaultAvatar}
         />
-        <Card.Content className="dark-mode2">
-          <Card.Header className="white">{user.displayName}</Card.Header>
+        <Card.Content>
+          <Card.Header>{user.displayName}</Card.Header>
           <Card.Meta>
-            <span className="gray">{user.username} </span>
+            <span>{user.username}</span>
           </Card.Meta>
-          <Card.Description className="white">
+          <Card.Description>
             {user.about ? user.about : <i>-Nothing about the user-</i>}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra className="dark-mode2">
-          <span className="gray">
-            Joined in: {new Date(user.createdAt).toDateString()}
-          </span>
+        <Card.Content extra>
+          <span>Joined in: {new Date(user.createdAt).toDateString()}</span>
           <br />
-          <span className="gray">
-            Last Updated: {new Date(user.updatedAt).toDateString()}
-          </span>
+          <span>Last Updated: {new Date(user.updatedAt).toDateString()}</span>
         </Card.Content>
       </Card>
     );
@@ -58,9 +53,9 @@ result
 mapdispatchToProps
 getUser
 */
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    username: state.auth.login.result && state.auth.login.result.username
+    username: state.auth.login.result && state.auth.login.result.username,
   };
 };
 

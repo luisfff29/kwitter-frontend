@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from ".";
 import { Spinner } from ".";
 import { Item, Grid, Dimmer, Input } from "../components";
-import "./DarkMode.css";
 import { withAsyncAction } from "../HOCs";
 
 class ListOfUsers extends React.Component {
@@ -12,7 +11,7 @@ class ListOfUsers extends React.Component {
     this.props.getListOfUsers();
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ search: event.target.value });
   };
 
@@ -29,7 +28,7 @@ class ListOfUsers extends React.Component {
 
     const users = this.props.result.users;
 
-    const searchedUsers = users.filter(user => {
+    const searchedUsers = users.filter((user) => {
       return (
         user.username.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
         -1
@@ -46,15 +45,15 @@ class ListOfUsers extends React.Component {
         />
 
         <Grid relaxed columns={4}>
-          {searchedUsers.map(person => (
+          {searchedUsers.map((person) => (
             <Grid.Column key={person.username}>
-              <Item.Group className="dark-mode2">
+              <Item.Group>
                 <Item>
                   <Item.Image
                     style={{
                       width: "60px",
                       height: "60px",
-                      overflow: "hidden"
+                      overflow: "hidden",
                     }}
                     src={
                       person.pictureLocation !== null
@@ -64,12 +63,12 @@ class ListOfUsers extends React.Component {
                     }
                   />
                   <Item.Content verticalAlign="middle">
-                    <Item.Header className="white">
+                    <Item.Header>
                       <Link to={"/profile/" + person.username}>
                         {person.displayName}
                       </Link>
                     </Item.Header>
-                    <p className="gray">{person.username}</p>
+                    <p>{person.username}</p>
                   </Item.Content>
                 </Item>
               </Item.Group>

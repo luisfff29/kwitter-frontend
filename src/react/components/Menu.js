@@ -4,7 +4,7 @@ import { withAsyncAction, connect } from "../HOCs";
 import { Sidebar, Menu, Icon } from "../components";
 
 class Menus extends React.Component {
-  handleLogout = event => {
+  handleLogout = (event) => {
     event.preventDefault();
     this.props.logout();
   };
@@ -18,16 +18,13 @@ class Menus extends React.Component {
         inverted
         visible
         width="thin"
-        style={{ backgroundColor: "#171725" }}
       >
         <Link to="/feed">
           <h1
             style={{
               fontFamily: "Bangers",
               fontSize: "50px",
-              backgroundColor: "#171725",
-              color: "white",
-              margin: "10px"
+              margin: "10px",
             }}
           >
             Kwitter
@@ -72,9 +69,9 @@ class Menus extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    username: state.auth.login.result && state.auth.login.result.username
+    username: state.auth.login.result && state.auth.login.result.username,
   };
 };
 

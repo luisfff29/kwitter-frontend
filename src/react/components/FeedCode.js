@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Grid, Card, Icon, Image, Modal } from "../components";
-import "./DarkMode.css";
 import MostLikedMessages from "./TheTopMost/MostLikedMessages";
 import MostRecentUsers from "./TheTopMost/MostRecentUsers";
 
@@ -15,9 +14,9 @@ class FeedCode extends Component {
       return (
         <Card style={{ width: "100%" }}>
           <Image src={img} />
-          <Card.Content extra textAlign="center" className="dark-mode2">
-            <Icon className="gray" name={icon} />
-            <span className="gray">{span}</span>
+          <Card.Content extra textAlign="center">
+            <Icon name={icon} />
+            <span>{span}</span>
           </Card.Content>
         </Card>
       );
@@ -26,9 +25,9 @@ class FeedCode extends Component {
     const card3 = (
       <Card style={{ width: "100%" }}>
         <Image src={pic3} />
-        <Card.Content extra textAlign="center" className="dark-mode2">
-          <Icon className="gray" name="like" />
-          <span className="gray">0 BFFs</span>
+        <Card.Content extra textAlign="center">
+          <Icon name="like" />
+          <span>0 BFFs</span>
         </Card.Content>
       </Card>
     );
@@ -36,9 +35,9 @@ class FeedCode extends Component {
     const card4 = (
       <Card style={{ width: "100%" }}>
         <Image src={pic4} />
-        <Card.Content extra textAlign="center" className="dark-mode2">
-          <Icon className="gray" name="user plus" />
-          <span className="gray">5 Friends</span>
+        <Card.Content extra textAlign="center">
+          <Icon name="user plus" />
+          <span>5 Friends</span>
         </Card.Content>
       </Card>
     );

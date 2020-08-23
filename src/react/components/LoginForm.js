@@ -2,17 +2,16 @@ import React from "react";
 import { Spinner } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Link, Segment, Grid, Form, Button, Divider } from "../components";
-import "./DarkMode.css";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
 
-  handleLogin = e => {
+  handleLogin = (e) => {
     e.preventDefault();
     this.props.login(this.state);
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -22,14 +21,13 @@ class LoginForm extends React.Component {
       <Segment
         placeholder
         textAlign="left"
-        className="dark-mode1"
         style={{ width: "80%", margin: "0 auto" }}
       >
         <Grid columns={2} relaxed="very" stackable>
           <Grid.Column>
             <Form onSubmit={this.handleLogin}>
               <Form.Field>
-                <label className="white">Username</label>
+                <label>Username</label>
                 <input
                   type="text"
                   name="username"
@@ -40,7 +38,7 @@ class LoginForm extends React.Component {
                 />
               </Form.Field>
               <Form.Field>
-                <label className="white">Password</label>
+                <label>Password</label>
                 <input
                   type="password"
                   name="password"
@@ -52,7 +50,6 @@ class LoginForm extends React.Component {
 
               <Button
                 color="blue"
-                className="white"
                 content="Login"
                 type="submit"
                 disabled={loading}
@@ -70,14 +67,11 @@ class LoginForm extends React.Component {
               content="Sign up"
               icon="signup"
               size="huge"
-              className="white"
             />
           </Grid.Column>
         </Grid>
 
-        <Divider vertical className="white">
-          OR
-        </Divider>
+        <Divider vertical>OR</Divider>
       </Segment>
     );
   }

@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Comment, Dimmer, Spinner } from "../components";
-import "./DarkMode.css";
 import { withAsyncAction, connect } from "../HOCs";
 import { DeleteMessage } from "../components";
 
@@ -23,13 +22,13 @@ class MyMessages extends React.Component {
     const messages = this.props.result.messages;
 
     return (
-      <Card className="dark-mode2" style={{ flexGrow: "2" }}>
+      <Card style={{ flexGrow: "2" }}>
         <Card.Content>
-          <Card.Header className="white">Recent Comments</Card.Header>
+          <Card.Header>Recent Comments</Card.Header>
         </Card.Content>
         {this.props.result.count !== 0 ? (
-          messages.map(message => (
-            <Card.Content key={message.id} className="dark-mode1">
+          messages.map((message) => (
+            <Card.Content key={message.id}>
               <Comment.Group>
                 <Comment>
                   <Comment.Avatar
@@ -40,13 +39,11 @@ class MyMessages extends React.Component {
                     }
                   />
                   <Comment.Content>
-                    <Comment.Author as="a" className="white">
-                      {message.username}
-                    </Comment.Author>
-                    <Comment.Metadata className="gray">
+                    <Comment.Author as="a">{message.username}</Comment.Author>
+                    <Comment.Metadata>
                       {new Date(message.createdAt).toLocaleString()}
                     </Comment.Metadata>
-                    <Comment.Text className="white">
+                    <Comment.Text>
                       {message.text}
                       <DeleteMessage
                         id={message.id}
@@ -59,18 +56,16 @@ class MyMessages extends React.Component {
             </Card.Content>
           ))
         ) : (
-          <i className="white" style={{ padding: "20px" }}>
-            -No recent comments-
-          </i>
+          <i style={{ padding: "20px" }}>-No recent comments-</i>
         )}
       </Card>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    username: state.auth.login.result && state.auth.login.result.username
+    username: state.auth.login.result && state.auth.login.result.username,
   };
 };
 

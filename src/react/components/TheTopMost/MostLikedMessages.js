@@ -26,14 +26,14 @@ class MostLikedMessages extends Component {
       <>
         <Modal.Header>Top 5 most liked messages</Modal.Header>
         <Modal.Content>
-          {messages.map(message => (
+          {messages.map((message) => (
             <Card.Content key={message.id} style={{ paddingBottom: "10px" }}>
               <Comment.Group size="big">
                 <Comment>
                   <Comment.Avatar src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" />
                   <Comment.Content>
                     <Comment.Author as="a">{message.username}</Comment.Author>
-                    <Comment.Metadata className="gray">
+                    <Comment.Metadata>
                       {new Date(message.createdAt).toLocaleString()}
                     </Comment.Metadata>
                     <Comment.Text>{message.text}</Comment.Text>

@@ -3,20 +3,19 @@ import {
   Menus,
   MessageList,
   MessageForm,
-  ThisIsTheBottom
+  ThisIsTheBottom,
 } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import { Comment, Header } from "../components";
-import "../components/DarkMode.css";
 
 class MessageFeed extends React.Component {
   render() {
     return (
       <>
         <Menus isAuthenticated={this.props.isAuthenticated} />
-        <Comment.Group size="large" className="dark-mode">
+        <Comment.Group size="large">
           <MessageForm />
-          <Header as="h2" dividing className="white" textAlign="center">
+          <Header as="h2" dividing textAlign="center">
             Message List
           </Header>
           <MessageList />
