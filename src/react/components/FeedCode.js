@@ -1,19 +1,17 @@
 import React, { Component } from "react";
-import { Grid, Card, Icon, Image, Modal } from "../components";
+import { Grid, Card, Icon, Modal } from "../components";
 import MostLikedMessages from "./TheTopMost/MostLikedMessages";
 import MostRecentUsers from "./TheTopMost/MostRecentUsers";
 
-const pic1 = require("./images/mostLikedMessages.png");
-const pic2 = require("./images/mostRecentUsers.png");
-const pic3 = require("./images/myBestFriends.png");
-const pic4 = require("./images/suggestionsForYou.png");
-
 class FeedCode extends Component {
   render() {
-    const cards = (img, icon, span) => {
+    const cards = (title, color, icon, span) => {
+      var header = "hugeHeader hugeHeader-" + color;
       return (
         <Card style={{ width: "100%" }}>
-          <Image src={img} />
+          <h1 className={header} size="huge">
+            {title}
+          </h1>
           <Card.Content extra textAlign="center">
             <Icon name={icon} />
             <span>{span}</span>
@@ -22,32 +20,17 @@ class FeedCode extends Component {
       );
     };
 
-    const card3 = (
-      <Card style={{ width: "100%" }}>
-        <Image src={pic3} />
-        <Card.Content extra textAlign="center">
-          <Icon name="like" />
-          <span>0 BFFs</span>
-        </Card.Content>
-      </Card>
-    );
-
-    const card4 = (
-      <Card style={{ width: "100%" }}>
-        <Image src={pic4} />
-        <Card.Content extra textAlign="center">
-          <Icon name="user plus" />
-          <span>5 Friends</span>
-        </Card.Content>
-      </Card>
-    );
-
     return (
-      <Grid verticalAlign="middle" columns={3} centered>
+      <Grid verticalAlign="middle" columns={3} stackable centered>
         <Grid.Row>
           <Grid.Column>
             <Modal
-              trigger={cards(pic1, "mail", "Top 5 Messages")}
+              trigger={cards(
+                "MOST LIKED MESSAGES",
+                "red",
+                "mail",
+                "Top 5 Messages"
+              )}
               size="tiny"
               closeIcon
             >
@@ -56,7 +39,12 @@ class FeedCode extends Component {
           </Grid.Column>
           <Grid.Column>
             <Modal
-              trigger={cards(pic2, "users", "Top 5 New Users")}
+              trigger={cards(
+                "MOST RECENT USERS",
+                "turq",
+                "users",
+                "Top 5 New Users"
+              )}
               size="mini"
               closeIcon
             >
@@ -64,7 +52,7 @@ class FeedCode extends Component {
             </Modal>
             <br />
             <Modal
-              trigger={card3}
+              trigger={cards("MY BEST FRIENDS", "blue", "like", "0 BFFs")}
               closeIcon
               header="Reminder!"
               content="My best friends!"
@@ -72,7 +60,12 @@ class FeedCode extends Component {
           </Grid.Column>
           <Grid.Column>
             <Modal
-              trigger={card4}
+              trigger={cards(
+                "SUGGESTIONS FOR YOU",
+                "green",
+                "user plus",
+                "5 Friends"
+              )}
               closeIcon
               header="Reminder!"
               content="Suggestions for you!"

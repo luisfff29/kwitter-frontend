@@ -16,3 +16,31 @@ code {
 #root {
   margin: 108px 20px auto 20px;
 }
+
+.hugeHeader {
+  font-size: 4vw;
+  font-weight: 900;
+  font-family: "Oxygen", sans-serif;
+  text-align: center;
+  -webkit-text-fill-color: transparent;
+}
+
+.hugeHeader-red {
+  background: linear-gradient(to bottom right, #df1a38, #fcd301);
+  background-clip: text;
+}
+
+.hugeHeader-turq {
+  background: linear-gradient(to bottom right, #3ab6a2, #b2ee3f);
+  background-clip: text;
+}
+
+.hugeHeader-blue {
+  background: linear-gradient(to bottom right, #6748a5, #4f6edb);
+  background-clip: text;
+}
+
+.hugeHeader-green {
+  background: linear-gradient(to bottom right, #bd9186, #71d3b2);
+  background-clip: text;
+}
