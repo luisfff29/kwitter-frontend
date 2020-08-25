@@ -1,7 +1,7 @@
 {
   "name": "kwitter",
   "version": "0.1.0",
-  "homepage": "https://luisfff29.gitlab.io/assessment---kwitter-frontend",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "connected-react-router": "^6.8.0",
