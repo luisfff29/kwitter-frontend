@@ -22,7 +22,7 @@ class MyMessages extends React.Component {
     const messages = this.props.result.messages;
 
     return (
-      <Card style={{ flexGrow: "2" }}>
+      <Card fluid>
         <Card.Content>
           <Card.Header>Recent Comments</Card.Header>
         </Card.Content>
@@ -33,8 +33,8 @@ class MyMessages extends React.Component {
                 <Comment>
                   <Comment.Avatar
                     src={
-                      message.pictureLocation
-                        ? message.pictureLocation
+                      message.pictureLocation !== undefined
+                        ? `https://kwitter-api.herokuapp.com${message.pictureLocation}`
                         : defaultAvatar
                     }
                   />

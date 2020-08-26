@@ -44,21 +44,22 @@ class ListOfUsers extends React.Component {
           onChange={this.handleChange}
         />
 
-        <Grid relaxed columns={4}>
+        <Grid>
           {searchedUsers.map((person) => (
-            <Grid.Column key={person.username}>
+            <Grid.Column
+              key={person.username}
+              computer={4}
+              mobile={5}
+              tablet={5}
+            >
               <Item.Group>
                 <Item>
                   <Item.Image
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      overflow: "hidden",
-                    }}
+                    avatar
+                    size="tiny"
                     src={
                       person.pictureLocation !== null
-                        ? "https://kwitter-api.herokuapp.com" +
-                          person.pictureLocation
+                        ? `https://kwitter-api.herokuapp.com${person.pictureLocation}`
                         : defaultAvatar
                     }
                   />

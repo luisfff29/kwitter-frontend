@@ -38,5 +38,6 @@ export {
   Loader,
   Input,
   Message,
-  Checkbox
+  Checkbox,
+  Container,
 } from "semantic-ui-react";

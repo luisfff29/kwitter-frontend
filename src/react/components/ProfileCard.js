@@ -21,9 +21,13 @@ class ProfileCard extends React.Component {
     const user = this.props.result.user;
 
     return (
-      <Card style={{ flexGrow: "1", margin: "10px" }}>
+      <Card fluid>
         <Image
-          src={user.pictureLocation ? user.pictureLocation : defaultAvatar}
+          src={
+            user.pictureLocation !== null
+              ? `https://kwitter-api.herokuapp.com${user.pictureLocation}`
+              : defaultAvatar
+          }
         />
         <Card.Content>
           <Card.Header>{user.displayName}</Card.Header>

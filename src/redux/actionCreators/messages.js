@@ -9,7 +9,7 @@ const url = domain + "/messages";
 export const getMessages = () => dispatch => {
   dispatch({ type: GETMESSAGES.START });
 
-  return fetch(url + "?limit=1000&offset=0", {
+  return fetch(url + "?limit=500&offset=0", {
     method: "GET"
   })
     .then(handleJsonResponse)

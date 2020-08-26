@@ -44,3 +44,9 @@ code {
   background: linear-gradient(to bottom right, #bd9186, #71d3b2);
   background-clip: text;
 }
+
+@media (max-width: 767px) {
+  .hugeHeader {
+    font-size: 7vw;
+  }
+}
