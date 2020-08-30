@@ -1,5 +1,5 @@
 // components from own project
-export { default as LoginForm } from "./CreateUser/LoginForm";
+export { default as LoginForm } from "./Home/LoginForm";
 export { default as Menus } from "./Menu";
 export { default as MessageList } from "./MessageList";
 export { default as MessageForm } from "./MessageForm";
