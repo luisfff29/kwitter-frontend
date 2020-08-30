@@ -1,10 +1,7 @@
 import React from "react";
-import {
-  Menus,
-  ProfileCard,
-  ProfileMessages,
-  ThisIsTheBottom,
-} from "../components";
+import { Menus, ThisIsTheBottom } from "../components";
+import ProfileCard from "../components/Profile/ProfileCard";
+import ProfileMessages from "../components/Profile/ProfileMessages";
 import { Grid, Container } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 

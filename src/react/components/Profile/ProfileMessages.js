@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Comment, Dimmer, Spinner } from "../components";
-import { withAsyncAction, connect } from "../HOCs";
-import { DeleteMessage } from "../components";
-import DefaultAvatar from "../assets/images/default-avatar.png";
+import { Card, Comment, Dimmer, Spinner } from "../../components";
+import { withAsyncAction, connect } from "../../HOCs";
+import { DeleteMessage } from "../../components";
+import DefaultAvatar from "../../assets/images/default-avatar.png";
 
 class MyMessages extends React.Component {
   componentDidMount = () => {
