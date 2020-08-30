@@ -1,5 +1,5 @@
 import React from "react";
-import { CreateUserForm } from "../components";
+import CreateUserForm from "../components/CreateUser/CreateUserForm";
 import { userIsNotAuthenticated } from "../HOCs";
 
 class CreateUser extends React.Component {

@@ -1,7 +1,7 @@
 import React from "react";
-import { Spinner } from ".";
-import { withAsyncAction } from "../HOCs";
-import { Link, Segment, Grid, Form, Button, Divider } from "../components";
+import { Spinner } from "../../components";
+import { withAsyncAction } from "../../HOCs";
+import { Link, Segment, Grid, Form, Button, Divider } from "../../components";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };

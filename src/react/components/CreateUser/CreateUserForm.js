@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link } from ".";
-import { withAsyncAction } from "../HOCs";
-import { Button, Form, Message, Icon, Image } from "../components";
-import BackgroundDarkMode from "../assets/images/backgroundDarkMode.jpg";
+import { Link } from "../../components";
+import { withAsyncAction } from "../../HOCs";
+import { Button, Form, Message, Icon, Image } from "../../components";
+import BackgroundDarkMode from "../../assets/images/backgroundDarkMode.jpg";
 
 class CreateUserForm extends Component {
   state = { username: "", displayName: "", password: "" };

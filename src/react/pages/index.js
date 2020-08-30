@@ -13,5 +13,5 @@ export default {
   CreateUser: { path: "/createuser", component: CreateUser },
   Feed: { path: "/feed", component: Feed },
   Users: { path: "/users", component: Users },
-  NotFound: { path: "*", component: NotFound }
+  NotFound: { path: "*", component: NotFound },
 };
