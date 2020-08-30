@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Modal } from ".";
-import { connect } from "../HOCs";
-import { deleteMessages } from "../../redux/actionCreators";
+import { Button, Modal } from "../../components";
+import { connect } from "../../HOCs";
+import { deleteMessages } from "../../../redux/actionCreators";
 
 class DeleteMessage extends React.Component {
   state = { open: false };
@@ -33,7 +33,7 @@ class DeleteMessage extends React.Component {
               No
             </Button>
             <Button
-              onClick={event =>
+              onClick={(event) =>
                 this.props.deleteMessages(this.props.id, this.props.username) &&
                 this.close
               }
@@ -50,7 +50,7 @@ class DeleteMessage extends React.Component {
 }
 
 const mapDispatchToProps = {
-  deleteMessages
+  deleteMessages,
 };
 
 export default connect(null, mapDispatchToProps)(DeleteMessage);

@@ -1,27 +1,26 @@
 import React, { Component } from "react";
-import { Popup, Icon, Feed } from ".";
-import { connect } from "../HOCs";
-import { addLike } from "../../redux/actionCreators";
-import { removeLike } from "../../redux/actionCreators";
+import { Popup, Icon, Feed } from "../../components";
+import { connect } from "../../HOCs";
+import { addLike, removeLike } from "../../../redux/actionCreators";
 
 class PopupLikes extends Component {
   handleAddLike = () => {
-    if (!this.props.atr.some(user => user.username === this.props.username)) {
+    if (!this.props.atr.some((user) => user.username === this.props.username)) {
       return this.props.addLike(this.props.id);
     }
     return this.props.removeLike(
       Number(
         this.props.atr
-          .filter(user => user.username === this.props.username)
-          .map(user => user.id)
+          .filter((user) => user.username === this.props.username)
+          .map((user) => user.id)
       )
     );
   };
 
   render() {
-    const WhoLikeIt = props => {
+    const WhoLikeIt = (props) => {
       let totalNames = props.atr2.length;
-      let names = props.atr2.map(user => user.username);
+      let names = props.atr2.map((user) => user.username);
       switch (totalNames) {
         case 1:
           return `${names[0]} likes this`;
@@ -30,8 +29,9 @@ class PopupLikes extends Component {
         case 3:
           return `${names[0]}, ${names[1]} and ${names[2]} like this`;
         default:
-          return `${names[0]}, ${names[1]} and ${totalNames -
-            2} others like this`;
+          return `${names[0]}, ${names[1]} and ${
+            totalNames - 2
+          } others like this`;
       }
     };
     return (
@@ -41,9 +41,9 @@ class PopupLikes extends Component {
             <Icon
               name="like"
               {...(this.props.atr.some(
-                user => user.username === this.props.username
+                (user) => user.username === this.props.username
               ) && {
-                color: "red"
+                color: "red",
               })}
             />
             {this.props.atr.length} Like(s)
@@ -59,12 +59,12 @@ class PopupLikes extends Component {
 
 const mapDispatchToProps = {
   addLike,
-  removeLike
+  removeLike,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    username: state.auth.login.result && state.auth.login.result.username
+    username: state.auth.login.result && state.auth.login.result.username,
   };
 };
 

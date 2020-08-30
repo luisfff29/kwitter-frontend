@@ -1,8 +1,8 @@
 import React from "react";
-import { Spinner } from ".";
-import { Comment, PopupLikes, Dimmer } from "../components";
-import { withAsyncAction } from "../HOCs";
-import DefaultAvatar from "../assets/images/default-avatar.png";
+import { Spinner } from "../../components";
+import { Comment, PopupLikes, Dimmer } from "../../components";
+import { withAsyncAction } from "../../HOCs";
+import DefaultAvatar from "../../assets/images/default-avatar.png";
 
 class MessageList extends React.Component {
   componentDidMount = () => {

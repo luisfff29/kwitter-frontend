@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Form } from "../components";
-import { connect } from "../HOCs";
-import { createMessage } from "../../redux/actionCreators";
+import { Button, Form } from "../../components";
+import { connect } from "../../HOCs";
+import { createMessage } from "../../../redux/actionCreators";
 
 class MessageForm extends React.Component {
   state = { messageText: "" };
