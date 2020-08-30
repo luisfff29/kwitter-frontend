@@ -1,11 +1,9 @@
-import React from "react";
-import { Menus, ThisIsTheBottom } from "../components";
-import ProfileCard from "../components/Profile/ProfileCard";
-import ProfileMessages from "../components/Profile/ProfileMessages";
+import React, { Component } from "react";
+import { Menus, ProfileCard, ProfileMessages } from "../components";
 import { Grid, Container } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 
-class Profile extends React.Component {
+class Profile extends Component {
   render() {
     return (
       <>
@@ -20,7 +18,6 @@ class Profile extends React.Component {
             </Grid.Column>
           </Grid>
         </Container>
-        <ThisIsTheBottom />
       </>
     );
   }

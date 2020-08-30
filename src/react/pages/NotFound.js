@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "../components";
 import pages from "../pages";
 
-class NotFound extends React.Component {
+class NotFound extends Component {
   render() {
     return (
       <>

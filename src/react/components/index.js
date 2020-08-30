@@ -6,10 +6,9 @@ export { default as MessageForm } from "./Messages/MessageForm";
 export { default as CreateUserForm } from "./CreateUser/CreateUserForm";
 export { default as PopupLikes } from "./Messages/PopupLikes";
 export { default as FeedCode } from "./Feed/FeedCode";
-export { default as ListOfUsers } from "./ListOfUsers";
+export { default as ListOfUsers } from "./Users/ListOfUsers";
 export { default as ProfileMessages } from "./Profile/ProfileMessages";
 export { default as ProfileCard } from "./Profile/ProfileCard";
-export { default as ThisIsTheBottom } from "./ThisIsTheBottom";
 export { default as DeleteMessage } from "./Messages/DeleteMessage";
 
 // components from other packages

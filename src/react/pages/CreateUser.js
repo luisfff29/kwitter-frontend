@@ -1,8 +1,8 @@
-import React from "react";
-import CreateUserForm from "../components/CreateUser/CreateUserForm";
+import React, { Component } from "react";
+import { CreateUserForm } from "../components";
 import { userIsNotAuthenticated } from "../HOCs";
 
-class CreateUser extends React.Component {
+class CreateUser extends Component {
   render() {
     return <CreateUserForm />;
   }

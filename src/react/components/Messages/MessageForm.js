@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button, Form } from "../../components";
 import { connect } from "../../HOCs";
 import { createMessage } from "../../../redux/actionCreators";
 
-class MessageForm extends React.Component {
+class MessageForm extends Component {
   state = { messageText: "" };
 
   handleCreateMessage = () => {

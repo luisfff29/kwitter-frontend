@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { Card, Image, Dimmer, Spinner } from "../../components";
 import { withAsyncAction, connect } from "../../HOCs";
 import DefaultAvatar from "../../assets/images/default-avatar.png";
 
-class ProfileCard extends React.Component {
+class ProfileCard extends Component {
   componentDidMount = () => {
     this.props.getUser(this.props.username);
   };

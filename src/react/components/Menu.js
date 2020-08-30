@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from ".";
 import { withAsyncAction, connect } from "../HOCs";
 import { Sidebar, Menu, Icon } from "../components";
 
-class Menus extends React.Component {
+class Menus extends Component {
   handleLogout = (event) => {
     event.preventDefault();
     this.props.logout();

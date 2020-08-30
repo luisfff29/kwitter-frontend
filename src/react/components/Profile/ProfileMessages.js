@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import { Card, Comment, Dimmer, Spinner } from "../../components";
 import { withAsyncAction, connect } from "../../HOCs";
 import { DeleteMessage } from "../../components";
 import DefaultAvatar from "../../assets/images/default-avatar.png";
 
-class MyMessages extends React.Component {
+class MyMessages extends Component {
   componentDidMount = () => {
     this.props.getPersonalMessages(this.props.username);
   };

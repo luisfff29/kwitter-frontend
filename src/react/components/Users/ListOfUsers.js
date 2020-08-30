@@ -1,11 +1,10 @@
-import React from "react";
-import { Link } from ".";
-import { Spinner } from ".";
-import { Item, Grid, Dimmer, Input } from "../components";
-import { withAsyncAction } from "../HOCs";
-import DefaultAvatar from "../assets/images/default-avatar.png";
+import React, { Component } from "react";
+import { Link, Spinner } from "../../components";
+import { Item, Grid, Dimmer, Input } from "../../components";
+import { withAsyncAction } from "../../HOCs";
+import DefaultAvatar from "../../assets/images/default-avatar.png";
 
-class ListOfUsers extends React.Component {
+class ListOfUsers extends Component {
   state = { search: "" };
 
   componentDidMount = () => {

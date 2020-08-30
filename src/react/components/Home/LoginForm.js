@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { Spinner } from "../../components";
 import { withAsyncAction } from "../../HOCs";
 import { Link, Segment, Grid, Form, Button, Divider } from "../../components";
 
-class LoginForm extends React.Component {
+class LoginForm extends Component {
   state = { username: "", password: "" };
 
   handleLogin = (e) => {

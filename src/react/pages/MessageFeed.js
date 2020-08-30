@@ -1,14 +1,9 @@
-import React from "react";
-import {
-  Menus,
-  MessageList,
-  MessageForm,
-  ThisIsTheBottom,
-} from "../components";
+import React, { Component } from "react";
+import { Menus, MessageList, MessageForm } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 import { Comment, Header } from "../components";
 
-class MessageFeed extends React.Component {
+class MessageFeed extends Component {
   render() {
     return (
       <>
@@ -20,7 +15,6 @@ class MessageFeed extends React.Component {
           </Header>
           <MessageList />
         </Comment.Group>
-        <ThisIsTheBottom />
       </>
     );
   }

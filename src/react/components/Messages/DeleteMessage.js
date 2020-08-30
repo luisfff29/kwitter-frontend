@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { Button, Modal } from "../../components";
 import { connect } from "../../HOCs";
 import { deleteMessages } from "../../../redux/actionCreators";
 
-class DeleteMessage extends React.Component {
+class DeleteMessage extends Component {
   state = { open: false };
 
   close = () => {

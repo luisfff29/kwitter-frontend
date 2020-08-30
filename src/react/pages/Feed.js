@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Menus, ThisIsTheBottom } from "../components";
-import FeedCode from "../components/Feed/FeedCode";
+import { Menus, FeedCode } from "../components";
 import { userIsAuthenticated } from "../HOCs";
 
 class Feed extends Component {
@@ -9,7 +8,6 @@ class Feed extends Component {
       <>
         <Menus isAuthenticated={this.props.isAuthenticated} />
         <FeedCode />
-        <ThisIsTheBottom />
       </>
     );
   }

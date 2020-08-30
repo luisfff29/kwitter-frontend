@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import { Spinner } from "../../components";
 import { Comment, PopupLikes, Dimmer } from "../../components";
 import { withAsyncAction } from "../../HOCs";
 import DefaultAvatar from "../../assets/images/default-avatar.png";
 
-class MessageList extends React.Component {
+class MessageList extends Component {
   componentDidMount = () => {
     this.props.getMessages();
   };
