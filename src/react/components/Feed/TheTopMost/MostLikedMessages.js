@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Spinner } from "..";
-import { Modal, Card, Comment, Dimmer } from "../../components";
-import { PopupLikes } from "../../components";
-import { withAsyncAction } from "../../HOCs";
-import DefaultAvatar from "../../assets/images/default-avatar.png";
+import { Spinner } from "../../../components";
+import { Modal, Card, Comment, Dimmer } from "../../../components";
+import { PopupLikes } from "../../../components";
+import { withAsyncAction } from "../../../HOCs";
+import DefaultAvatar from "../../../assets/images/default-avatar.png";
 
 class MostLikedMessages extends Component {
   componentDidMount = () => {

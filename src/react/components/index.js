@@ -5,7 +5,7 @@ export { default as MessageList } from "./Messages/MessageList";
 export { default as MessageForm } from "./Messages/MessageForm";
 export { default as CreateUserForm } from "./CreateUser/CreateUserForm";
 export { default as PopupLikes } from "./Messages/PopupLikes";
-export { default as FeedCode } from "./FeedCode";
+export { default as FeedCode } from "./Feed/FeedCode";
 export { default as ListOfUsers } from "./ListOfUsers";
 export { default as ProfileMessages } from "./ProfileMessages";
 export { default as ProfileCard } from "./ProfileCard";

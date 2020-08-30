@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Spinner } from "..";
-import { Modal, Item, Dimmer } from "../../components";
-import { withAsyncAction } from "../../HOCs";
-import DefaultAvatar from "../../assets/images/default-avatar.png";
+import { Spinner } from "../../../components";
+import { Modal, Item, Dimmer } from "../../../components";
+import { withAsyncAction } from "../../../HOCs";
+import DefaultAvatar from "../../../assets/images/default-avatar.png";
 
 class MostRecentUsers extends Component {
   componentDidMount = () => {

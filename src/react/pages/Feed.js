@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Menus, FeedCode, ThisIsTheBottom } from "../components";
+import { Menus, ThisIsTheBottom } from "../components";
+import FeedCode from "../components/Feed/FeedCode";
 import { userIsAuthenticated } from "../HOCs";
 
 class Feed extends Component {

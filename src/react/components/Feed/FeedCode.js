@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Card, Icon, Modal } from "../components";
+import { Grid, Card, Icon, Modal } from "../../components";
 import MostLikedMessages from "./TheTopMost/MostLikedMessages";
 import MostRecentUsers from "./TheTopMost/MostRecentUsers";
 
