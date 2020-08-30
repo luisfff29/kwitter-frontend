@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from ".";
 import { withAsyncAction } from "../HOCs";
 import { Button, Form, Message, Icon, Image } from "../components";
+import BackgroundDarkMode from "../assets/images/backgroundDarkMode.jpg";
 
 class CreateUserForm extends Component {
   state = { username: "", displayName: "", password: "" };
@@ -19,7 +20,6 @@ class CreateUserForm extends Component {
   };
 
   render() {
-    const backgroundPic = require("./images/backgroundDarkMode.jpg");
     return (
       <div
         style={{
@@ -28,7 +28,7 @@ class CreateUserForm extends Component {
           marginTop: "-80px",
         }}
       >
-        <Image size="large" src={backgroundPic} />
+        <Image size="large" src={BackgroundDarkMode} />
         <div>
           <Message
             attached

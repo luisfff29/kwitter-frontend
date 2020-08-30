@@ -3,6 +3,7 @@ import { Spinner } from "..";
 import { Modal, Card, Comment, Dimmer } from "../../components";
 import { PopupLikes } from "../../components";
 import { withAsyncAction } from "../../HOCs";
+import DefaultAvatar from "../../assets/images/default-avatar.png";
 
 class MostLikedMessages extends Component {
   componentDidMount = () => {
@@ -30,7 +31,7 @@ class MostLikedMessages extends Component {
             <Card.Content key={message.id} style={{ paddingBottom: "10px" }}>
               <Comment.Group size="big">
                 <Comment>
-                  <Comment.Avatar src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" />
+                  <Comment.Avatar src={DefaultAvatar} />
                   <Comment.Content>
                     <Comment.Author as="a">{message.username}</Comment.Author>
                     <Comment.Metadata>

@@ -2,8 +2,7 @@ import React from "react";
 import { Spinner } from ".";
 import { Comment, PopupLikes, Dimmer } from "../components";
 import { withAsyncAction } from "../HOCs";
-
-const defaultAvatar = require("./images/default-avatar.png");
+import DefaultAvatar from "../assets/images/default-avatar.png";
 
 class MessageList extends React.Component {
   componentDidMount = () => {
@@ -25,7 +24,7 @@ class MessageList extends React.Component {
       <Comment key={comment.id}>
         <Comment.Avatar
           style={{ height: "60px", width: "60px", marginRight: "10px" }}
-          src={defaultAvatar}
+          src={DefaultAvatar}
         />
         <Comment.Content>
           <Comment.Author as="a">{comment.username}</Comment.Author>

@@ -3,6 +3,7 @@ import { Link } from ".";
 import { Spinner } from ".";
 import { Item, Grid, Dimmer, Input } from "../components";
 import { withAsyncAction } from "../HOCs";
+import DefaultAvatar from "../assets/images/default-avatar.png";
 
 class ListOfUsers extends React.Component {
   state = { search: "" };
@@ -16,8 +17,6 @@ class ListOfUsers extends React.Component {
   };
 
   render() {
-    const defaultAvatar = require("./images/default-avatar.png");
-
     if (this.props.result === null) {
       return (
         <Dimmer active>
@@ -60,7 +59,7 @@ class ListOfUsers extends React.Component {
                     src={
                       person.pictureLocation !== null
                         ? `https://kwitter-api.herokuapp.com${person.pictureLocation}`
-                        : defaultAvatar
+                        : DefaultAvatar
                     }
                   />
                   <Item.Content verticalAlign="middle">

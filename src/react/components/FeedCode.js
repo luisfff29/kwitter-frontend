@@ -6,7 +6,7 @@ import MostRecentUsers from "./TheTopMost/MostRecentUsers";
 class FeedCode extends Component {
   render() {
     const cards = (title, color, icon, span) => {
-      var header = "hugeHeader hugeHeader-" + color;
+      var header = `hugeHeader hugeHeader-${color}`;
       return (
         <Card style={{ width: "100%" }}>
           <h1 className={header} size="huge">

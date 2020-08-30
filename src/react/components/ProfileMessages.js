@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Comment, Dimmer, Spinner } from "../components";
 import { withAsyncAction, connect } from "../HOCs";
 import { DeleteMessage } from "../components";
+import DefaultAvatar from "../assets/images/default-avatar.png";
 
 class MyMessages extends React.Component {
   componentDidMount = () => {
@@ -9,8 +10,6 @@ class MyMessages extends React.Component {
   };
 
   render() {
-    const defaultAvatar = require("./images/default-avatar.png");
-
     if (this.props.result === null) {
       return (
         <Dimmer active>
@@ -35,7 +34,7 @@ class MyMessages extends React.Component {
                     src={
                       message.pictureLocation !== undefined
                         ? `https://kwitter-api.herokuapp.com${message.pictureLocation}`
-                        : defaultAvatar
+                        : DefaultAvatar
                     }
                   />
                   <Comment.Content>

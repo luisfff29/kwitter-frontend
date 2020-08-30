@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Image, Dimmer, Spinner } from "../components";
 import { withAsyncAction, connect } from "../HOCs";
+import DefaultAvatar from "../assets/images/default-avatar.png";
 
 class ProfileCard extends React.Component {
   componentDidMount = () => {
@@ -8,8 +9,6 @@ class ProfileCard extends React.Component {
   };
 
   render() {
-    const defaultAvatar = require("./images/default-avatar.png");
-
     if (this.props.result === null) {
       return (
         <Dimmer active>
@@ -26,7 +25,7 @@ class ProfileCard extends React.Component {
           src={
             user.pictureLocation !== null
               ? `https://kwitter-api.herokuapp.com${user.pictureLocation}`
-              : defaultAvatar
+              : DefaultAvatar
           }
         />
         <Card.Content>
