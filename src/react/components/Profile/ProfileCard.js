@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { Card, Image, Dimmer, Spinner } from "../../components";
 import { withAsyncAction, connect } from "../../HOCs";
 import DefaultAvatar from "../../assets/images/default-avatar.png";
+import { withRouter } from "react-router-dom";
 
 class ProfileCard extends Component {
   componentDidMount = () => {
-    this.props.getUser(this.props.username);
+    this.props.getUser(this.props.match.params.username);
   };
 
   render() {
@@ -27,6 +28,7 @@ class ProfileCard extends Component {
               ? `https://kwitter-api.herokuapp.com${user.pictureLocation}`
               : DefaultAvatar
           }
+          wrapped
         />
         <Card.Content>
           <Card.Header>{user.displayName}</Card.Header>
@@ -62,6 +64,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(
-  withAsyncAction("users", "getUser")(ProfileCard)
+export default withRouter(
+  connect(mapStateToProps)(withAsyncAction("users", "getUser")(ProfileCard))
 );

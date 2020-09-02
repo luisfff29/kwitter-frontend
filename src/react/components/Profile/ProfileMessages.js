@@ -3,10 +3,11 @@ import { Card, Comment, Dimmer, Spinner } from "../../components";
 import { withAsyncAction, connect } from "../../HOCs";
 import { DeleteMessage } from "../../components";
 import DefaultAvatar from "../../assets/images/default-avatar.png";
+import { withRouter } from "react-router-dom";
 
 class MyMessages extends Component {
   componentDidMount = () => {
-    this.props.getPersonalMessages(this.props.username);
+    this.props.getPersonalMessages(this.props.match.params.username);
   };
 
   render() {
@@ -44,10 +45,13 @@ class MyMessages extends Component {
                     </Comment.Metadata>
                     <Comment.Text>
                       {message.text}
-                      <DeleteMessage
-                        id={message.id}
-                        username={message.username}
-                      />
+                      {this.props.username ===
+                      this.props.match.params.username ? (
+                        <DeleteMessage
+                          id={message.id}
+                          username={message.username}
+                        />
+                      ) : null}
                     </Comment.Text>
                   </Comment.Content>
                 </Comment>
@@ -68,6 +72,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(
-  withAsyncAction("messages", "getPersonalMessages")(MyMessages)
+export default withRouter(
+  connect(mapStateToProps)(
+    withAsyncAction("messages", "getPersonalMessages")(MyMessages)
+  )
 );
