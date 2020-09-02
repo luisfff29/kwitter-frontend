@@ -21,13 +21,9 @@ class MessageFeed extends Component {
       <>
         <Menus isAuthenticated={this.props.isAuthenticated} />
         <MessageForm />
-        {this.state.show ? (
-          <MessageCard
-            card={this.state.card}
-            show={this.state.card}
-            hide={this.hideCard}
-          />
-        ) : null}
+        {this.state.show && (
+          <MessageCard card={this.state.card} hide={this.hideCard} />
+        )}
         <Comment.Group size="large">
           <Header as="h2" dividing textAlign="center">
             Message List

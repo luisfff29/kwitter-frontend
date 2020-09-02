@@ -1,7 +1,8 @@
 // components from own project
 export { default as LoginForm } from "./Home/LoginForm";
 export { default as CreateUserForm } from "./CreateUser/CreateUserForm";
-export { default as Menus } from "./Menu";
+export { default as Menus } from "./Menu/Menu";
+export { default as Backdrop } from "./Menu/Backdrop";
 export { default as FeedCode } from "./Feed/FeedCode";
 export { default as MessageList } from "./Messages/MessageList";
 export { default as MessageForm } from "./Messages/MessageForm";
@@ -40,4 +41,5 @@ export {
   Message,
   Checkbox,
   Container,
+  Responsive,
 } from "semantic-ui-react";
