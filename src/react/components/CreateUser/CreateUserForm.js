@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "../../components";
+import { Link, Spinner } from "../../components";
 import { withAsyncAction } from "../../HOCs";
 import { Button, Form, Message, Icon, Image } from "../../components";
 import BackgroundDarkMode from "../../assets/images/backgroundDarkMode.jpg";
@@ -20,6 +20,8 @@ class CreateUserForm extends Component {
   };
 
   render() {
+    const { loading, error } = this.props;
+
     return (
       <div
         style={{
@@ -70,6 +72,8 @@ class CreateUserForm extends Component {
               Submit
             </Button>
           </Form>
+          {loading && <Spinner name="circle" color="white" />}
+          {error && <p style={{ color: "red" }}>{error.message}</p>}
           <Message attached="bottom" warning>
             <Icon name="help" />
             Already signed up?&nbsp;<Link to="/">Login here</Link>

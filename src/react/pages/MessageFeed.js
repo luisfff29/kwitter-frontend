@@ -28,7 +28,7 @@ class MessageFeed extends Component {
           <Header as="h2" dividing textAlign="center">
             Message List
           </Header>
-          <MessageList showCard={this.showCard} show={this.state.show} />
+          <MessageList showCard={this.showCard} />
         </Comment.Group>
       </>
     );
