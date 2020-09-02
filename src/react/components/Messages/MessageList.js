@@ -9,6 +9,10 @@ class MessageList extends Component {
     this.props.getMessages();
   };
 
+  addDefaultSrc = (e) => {
+    e.target.src = DefaultAvatar;
+  };
+
   render() {
     if (this.props.result === null) {
       return (
@@ -24,7 +28,8 @@ class MessageList extends Component {
       <Comment key={comment.id}>
         <Comment.Avatar
           style={{ height: "60px", width: "60px", marginRight: "10px" }}
-          src={DefaultAvatar}
+          src={`https://kwitter-api.herokuapp.com/users/${comment.username}/picture/`}
+          onError={this.addDefaultSrc}
         />
         <Comment.Content>
           <Comment.Author as="a">{comment.username}</Comment.Author>
