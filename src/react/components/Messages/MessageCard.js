@@ -20,6 +20,7 @@ const messageCard = (props) => {
               ? `https://kwitter-api.herokuapp.com${props.card.pictureLocation}`
               : DefaultAvatar
           }
+          wrapped
         />
         <Card.Content>
           <Card.Header>{props.card.displayName}</Card.Header>

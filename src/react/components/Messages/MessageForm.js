@@ -23,6 +23,7 @@ class MessageForm extends Component {
           value={this.state.messageText}
           onChange={this.handleChangeMessage}
           placeholder="Type a message..."
+          width={12}
         />
         <Button
           type="submit"

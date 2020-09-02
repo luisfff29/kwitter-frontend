@@ -11,12 +11,16 @@
   position: fixed !important;
 }
 
-.Image {
-  height: 55vh;
-}
-
-@media (max-width: 320px) {
+@media (max-width: 499px) {
   .MessageCard {
     right: 1rem;
+    width: 50% !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .MessageCard {
+    right: 4rem;
+    width: 20% !important;
   }
 }
