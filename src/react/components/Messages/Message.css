@@ -1,0 +1,22 @@
+.CloseIcon {
+  position: absolute;
+  transform: translate(-20px, -20px);
+  cursor: pointer;
+}
+
+.MessageCard {
+  top: 8rem;
+  z-index: 100;
+  right: 2rem;
+  position: fixed !important;
+}
+
+.Image {
+  height: 55vh;
+}
+
+@media (max-width: 320px) {
+  .MessageCard {
+    right: 1rem;
+  }
+}

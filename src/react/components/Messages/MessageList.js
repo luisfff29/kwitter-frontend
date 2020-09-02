@@ -9,8 +9,8 @@ class MessageList extends Component {
     this.props.getMessages();
   };
 
-  addDefaultSrc = (e) => {
-    e.target.src = DefaultAvatar;
+  addDefaultSrc = (event) => {
+    event.target.src = DefaultAvatar;
   };
 
   render() {
@@ -32,7 +32,9 @@ class MessageList extends Component {
           onError={this.addDefaultSrc}
         />
         <Comment.Content>
-          <Comment.Author as="a">{comment.username}</Comment.Author>
+          <Comment.Author onClick={(e) => this.props.showCard(e)} as="a">
+            {comment.username}
+          </Comment.Author>
           <Comment.Metadata className="gray">
             {new Date(comment.createdAt).toLocaleString()}
           </Comment.Metadata>
