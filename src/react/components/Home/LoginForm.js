@@ -17,6 +17,7 @@ class LoginForm extends Component {
 
   render() {
     const { loading, error } = this.props;
+
     return (
       <Segment
         placeholder

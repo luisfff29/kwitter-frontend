@@ -41,9 +41,7 @@ class ProfileCard extends Component {
               style={{ float: "right" }}
             >
               <Dropdown.Menu>
-                <Dropdown.Item>
-                  <UploadPicture />
-                </Dropdown.Item>
+                <UploadPicture />
                 <Dropdown.Item>Update profile</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

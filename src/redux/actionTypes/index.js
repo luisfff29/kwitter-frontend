@@ -1,9 +1,9 @@
-const createActionTypes = actionName => {
+const createActionTypes = (actionName) => {
   const ACTIONNAME = actionName.toUpperCase();
   return {
     START: ACTIONNAME + ".START",
     SUCCESS: ACTIONNAME + ".SUCCESS",
-    FAIL: ACTIONNAME + ".FAIL"
+    FAIL: ACTIONNAME + ".FAIL",
   };
 };
 
@@ -13,6 +13,7 @@ export const GETUSER = createActionTypes("GETUSER");
 export const GETLISTOFUSERS = createActionTypes("GETLISTOFUSERS");
 export const CREATENEWUSER = createActionTypes("CREATENEWUSER");
 export const UPDATEUSER = createActionTypes("UPDATEUSER");
+export const UPLOADPICTURE = createActionTypes("UPLOADPICTURE");
 export const GETMESSAGES = createActionTypes("GETMESSAGES");
 export const CREATEMESSAGE = createActionTypes("CREATEMESSAGE");
 export const GETPERSONALMESSAGES = createActionTypes("GETPERSONALMESSAGES");
