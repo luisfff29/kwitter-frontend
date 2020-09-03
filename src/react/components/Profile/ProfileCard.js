@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Card, Image, Dimmer, Spinner } from "../../components";
+import { Card, Image, Dimmer, Dropdown } from "../../components";
+import { Spinner } from "../../components";
 import { withAsyncAction, connect } from "../../HOCs";
+import UploadPicture from "./UploadPicture";
 import DefaultAvatar from "../../assets/images/default-avatar.png";
 import { withRouter } from "react-router-dom";
 
@@ -31,7 +33,21 @@ class ProfileCard extends Component {
           wrapped
         />
         <Card.Content>
-          <Card.Header>{user.displayName}</Card.Header>
+          <Card.Header>
+            {user.displayName}
+            <Dropdown
+              icon="ellipsis vertical"
+              direction="left"
+              style={{ float: "right" }}
+            >
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <UploadPicture />
+                </Dropdown.Item>
+                <Dropdown.Item>Update profile</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Card.Header>
           <Card.Meta>
             <span>{user.username}</span>
           </Card.Meta>

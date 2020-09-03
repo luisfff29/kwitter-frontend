@@ -11,6 +11,7 @@ export { default as MessageCard } from "./Messages/MessageCard";
 export { default as ListOfUsers } from "./Users/ListOfUsers";
 export { default as ProfileMessages } from "./Profile/ProfileMessages";
 export { default as ProfileCard } from "./Profile/ProfileCard";
+export { default as UploadPicture } from "./Profile/UploadPicture";
 export { default as DeleteMessage } from "./Profile/DeleteMessage";
 
 // components from other packages
@@ -42,4 +43,5 @@ export {
   Checkbox,
   Container,
   Responsive,
+  Dropdown,
 } from "semantic-ui-react";
