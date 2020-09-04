@@ -6,6 +6,10 @@ import DefaultAvatar from "../../assets/images/default-avatar.png";
 import { withRouter } from "react-router-dom";
 
 class MyMessages extends Component {
+  addDefaultSrc = (event) => {
+    event.target.src = DefaultAvatar;
+  };
+
   componentDidMount = () => {
     this.props.getPersonalMessages(this.props.match.params.username);
   };
@@ -32,11 +36,8 @@ class MyMessages extends Component {
               <Comment.Group>
                 <Comment>
                   <Comment.Avatar
-                    src={
-                      message.pictureLocation !== undefined
-                        ? `https://kwitter-api.herokuapp.com${message.pictureLocation}`
-                        : DefaultAvatar
-                    }
+                    src={`https://kwitter-api.herokuapp.com/users/${message.username}/picture/`}
+                    onError={this.addDefaultSrc}
                   />
                   <Comment.Content>
                     <Comment.Author as="a">{message.username}</Comment.Author>
