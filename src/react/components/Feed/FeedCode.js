@@ -50,15 +50,15 @@ class FeedCode extends Component {
             >
               <MostRecentUsers />
             </Modal>
-            <br />
+            {/* <br />
             <Modal
               trigger={cards("MY BEST FRIENDS", "blue", "like", "0 BFFs")}
               closeIcon
               header="Reminder!"
               content="My best friends!"
-            />
+            /> */}
           </Grid.Column>
-          <Grid.Column>
+          {/* <Grid.Column>
             <Modal
               trigger={cards(
                 "SUGGESTIONS FOR YOU",
@@ -70,7 +70,7 @@ class FeedCode extends Component {
               header="Reminder!"
               content="Suggestions for you!"
             />
-          </Grid.Column>
+          </Grid.Column> */}
         </Grid.Row>
       </Grid>
     );

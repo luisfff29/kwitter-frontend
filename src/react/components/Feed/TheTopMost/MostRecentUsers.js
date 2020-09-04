@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import { Spinner } from "../../../components";
-import { Modal, Item, Dimmer } from "../../../components";
+import { Modal, Image, Dimmer, List } from "../../../components";
 import { withAsyncAction } from "../../../HOCs";
 import DefaultAvatar from "../../../assets/images/default-avatar.png";
 
 class MostRecentUsers extends Component {
   componentDidMount = () => {
     this.props.getListOfUsers();
-  };
-
-  addDefaultSrc = (event) => {
-    event.target.src = DefaultAvatar;
   };
 
   render() {
@@ -28,20 +24,23 @@ class MostRecentUsers extends Component {
       <>
         <Modal.Header>Top 5 most recent users</Modal.Header>
         <Modal.Content>
-          {users.map((user) => (
-            <Item.Group divided key={user.username}>
-              <Item>
-                <Item.Image
-                  size="tiny"
-                  src={`https://kwitter-api.herokuapp.com/users/${user.username}/picture/`}
-                  onError={this.addDefaultSrc}
+          <List divided size="massive">
+            {users.map((user) => (
+              <List.Item key={user.username}>
+                <Image
+                  avatar
+                  src={
+                    user.pictureLocation != null
+                      ? `https://kwitter-api.herokuapp.com${user.pictureLocation}`
+                      : DefaultAvatar
+                  }
                 />
-                <Item.Content verticalAlign="middle">
-                  <Item.Header>{user.displayName}</Item.Header>
-                </Item.Content>
-              </Item>
-            </Item.Group>
-          ))}
+                <List.Content verticalAlign="middle">
+                  <List.Header>{user.username}</List.Header>
+                </List.Content>
+              </List.Item>
+            ))}
+          </List>
         </Modal.Content>
       </>
     );
