@@ -9,6 +9,10 @@ class MostRecentUsers extends Component {
     this.props.getListOfUsers();
   };
 
+  addDefaultSrc = (event) => {
+    event.target.src = DefaultAvatar;
+  };
+
   render() {
     if (this.props.result === null) {
       return (
@@ -27,7 +31,11 @@ class MostRecentUsers extends Component {
           {users.map((user) => (
             <Item.Group divided key={user.username}>
               <Item>
-                <Item.Image size="tiny" src={DefaultAvatar} />
+                <Item.Image
+                  size="tiny"
+                  src={`https://kwitter-api.herokuapp.com/users/${user.username}/picture/`}
+                  onError={this.addDefaultSrc}
+                />
                 <Item.Content verticalAlign="middle">
                   <Item.Header>{user.displayName}</Item.Header>
                 </Item.Content>

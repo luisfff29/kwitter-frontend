@@ -11,6 +11,7 @@ export { default as MessageCard } from "./Messages/MessageCard";
 export { default as ListOfUsers } from "./Users/ListOfUsers";
 export { default as ProfileMessages } from "./Profile/ProfileMessages";
 export { default as ProfileCard } from "./Profile/ProfileCard";
+export { default as UpdateUser } from "./Profile/UpdateUser";
 export { default as UploadPicture } from "./Profile/UploadPicture";
 export { default as DeleteMessage } from "./Profile/DeleteMessage";
 

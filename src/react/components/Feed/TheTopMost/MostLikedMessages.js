@@ -10,6 +10,10 @@ class MostLikedMessages extends Component {
     this.props.getMessages();
   };
 
+  addDefaultSrc = (event) => {
+    event.target.src = DefaultAvatar;
+  };
+
   render() {
     if (this.props.result === null) {
       return (
@@ -31,7 +35,10 @@ class MostLikedMessages extends Component {
             <Card.Content key={message.id} style={{ paddingBottom: "10px" }}>
               <Comment.Group size="big">
                 <Comment>
-                  <Comment.Avatar src={DefaultAvatar} />
+                  <Comment.Avatar
+                    src={`https://kwitter-api.herokuapp.com/users/${message.username}/picture/`}
+                    onError={this.addDefaultSrc}
+                  />
                   <Comment.Content>
                     <Comment.Author as="a">{message.username}</Comment.Author>
                     <Comment.Metadata>

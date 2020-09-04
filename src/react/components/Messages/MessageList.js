@@ -39,11 +39,7 @@ class MessageList extends Component {
             {new Date(comment.createdAt).toLocaleString()}
           </Comment.Metadata>
           <Comment.Text>{comment.text}</Comment.Text>
-          <PopupLikes
-            atr={comment.likes}
-            id={comment.id}
-            li={comment.likes.map((like) => like.id)}
-          />
+          <PopupLikes atr={comment.likes} id={comment.id} />
         </Comment.Content>
       </Comment>
     ));

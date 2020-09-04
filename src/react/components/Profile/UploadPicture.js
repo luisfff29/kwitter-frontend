@@ -16,7 +16,7 @@ class UploadPicture extends Component {
     this.props.uploadPicture(fd);
     setTimeout(() => {
       if (this.props.error == null) {
-        this.setState({ ...this.state, open: false });
+        window.location.reload();
       }
     }, 1750);
   };

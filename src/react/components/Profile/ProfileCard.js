@@ -3,6 +3,7 @@ import { Card, Image, Dimmer, Dropdown } from "../../components";
 import { Spinner } from "../../components";
 import { withAsyncAction, connect } from "../../HOCs";
 import UploadPicture from "./UploadPicture";
+import UpdateUser from "./UpdateUser";
 import DefaultAvatar from "../../assets/images/default-avatar.png";
 import { withRouter } from "react-router-dom";
 
@@ -42,7 +43,7 @@ class ProfileCard extends Component {
             >
               <Dropdown.Menu>
                 <UploadPicture />
-                <Dropdown.Item>Update profile</Dropdown.Item>
+                <UpdateUser about={user.about} displayName={user.displayName} />
               </Dropdown.Menu>
             </Dropdown>
           </Card.Header>

@@ -77,7 +77,7 @@ export const createNewUser = (username, displayName, password) => (
   });
 };
 
-export const updateUser = (password, about, displayName) => (
+export const updateUser = (displayName, about, password) => (
   dispatch,
   getState
 ) => {
@@ -89,7 +89,7 @@ export const updateUser = (password, about, displayName) => (
   return fetch(url + "/" + username, {
     method: "PATCH",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders },
-    body: JSON.stringify({ password, about, displayName }),
+    body: JSON.stringify({ displayName, about, password }),
   })
     .then(handleJsonResponse)
     .then((result) => {
