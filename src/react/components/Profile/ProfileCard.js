@@ -36,16 +36,21 @@ class ProfileCard extends Component {
         <Card.Content>
           <Card.Header>
             {user.displayName}
-            <Dropdown
-              icon="ellipsis vertical"
-              direction="left"
-              style={{ float: "right" }}
-            >
-              <Dropdown.Menu>
-                <UploadPicture />
-                <UpdateUser about={user.about} displayName={user.displayName} />
-              </Dropdown.Menu>
-            </Dropdown>
+            {this.props.username === this.props.match.params.username && (
+              <Dropdown
+                icon="ellipsis vertical"
+                direction="left"
+                style={{ float: "right" }}
+              >
+                <Dropdown.Menu>
+                  <UploadPicture />
+                  <UpdateUser
+                    about={user.about}
+                    displayName={user.displayName}
+                  />
+                </Dropdown.Menu>
+              </Dropdown>
+            )}
           </Card.Header>
           <Card.Meta>
             <span>{user.username}</span>

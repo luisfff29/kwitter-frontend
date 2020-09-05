@@ -47,12 +47,12 @@ class MyMessages extends Component {
                     <Comment.Text>
                       {message.text}
                       {this.props.username ===
-                      this.props.match.params.username ? (
+                        this.props.match.params.username && (
                         <DeleteMessage
                           id={message.id}
                           username={message.username}
                         />
-                      ) : null}
+                      )}
                     </Comment.Text>
                   </Comment.Content>
                 </Comment>
