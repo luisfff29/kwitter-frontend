@@ -1,7 +1,6 @@
 {
   "name": "kwitter",
   "version": "0.1.0",
-  "homepage": ".",
   "private": true,
   "engines": {
     "node": "14.4.0",
@@ -40,8 +39,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "dependency-cruiser": "^5.5.0"
-  }
+  ]
 }
