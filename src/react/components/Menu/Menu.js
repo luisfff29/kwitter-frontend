@@ -67,7 +67,7 @@ class Menus extends Component {
                 Messages
               </Menu.Item>
             </Link>
-            <Link to="/">
+            <Link to="/" onClick={this.handleLogout}>
               <Menu.Item>
                 <Icon name="sign out" />
                 Log out
