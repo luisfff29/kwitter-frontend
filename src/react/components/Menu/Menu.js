@@ -42,7 +42,14 @@ class Menus extends Component {
                 Home
               </Menu.Item>
             </Link>
-            <Link to={"/profile/" + this.props.username}>
+            <Link
+              to={"/profile/" + this.props.username}
+              onClick={() =>
+                setTimeout(() => {
+                  window.location.reload();
+                }, 1)
+              }
+            >
               <Menu.Item>
                 <Icon name="user" />
                 Profile
@@ -103,7 +110,14 @@ class Menus extends Component {
                   Home
                 </Menu.Item>
               </Link>
-              <Link to={"/profile/" + this.props.username}>
+              <Link
+                to={"/profile/" + this.props.username}
+                onClick={() =>
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 1)
+                }
+              >
                 <Menu.Item>
                   <Icon name="user" />
                   Profile
