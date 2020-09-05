@@ -1,0 +1,14 @@
+.BackgroundSignup {
+  background-image: url("../../assets/images/kwitter-signup.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* height: 20rem; */
+}
+
+@media (max-width: 767px) {
+  .BackgroundSignup {
+    height: 20rem;
+  }
+}
