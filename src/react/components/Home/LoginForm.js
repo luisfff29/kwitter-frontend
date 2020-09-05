@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { Spinner } from "../../components";
 import { withAsyncAction } from "../../HOCs";
-import { Link, Segment, Grid, Form, Button, Divider } from "../../components";
+import {
+  Link,
+  Segment,
+  Grid,
+  Form,
+  Button,
+  Divider,
+  Responsive,
+} from "../../components";
 
 class LoginForm extends Component {
   state = { username: "", password: "" };
@@ -19,12 +27,8 @@ class LoginForm extends Component {
     const { loading, error } = this.props;
 
     return (
-      <Segment
-        placeholder
-        textAlign="left"
-        style={{ width: "80%", margin: "0 auto" }}
-      >
-        <Grid columns={2} relaxed="very" stackable>
+      <Segment placeholder style={{ width: "80%", margin: "0 auto" }}>
+        <Grid columns={2} relaxed stackable textAlign="left">
           <Grid.Column>
             <Form onSubmit={this.handleLogin}>
               <Form.Field>
@@ -58,6 +62,9 @@ class LoginForm extends Component {
               {loading && <Spinner name="circle" color="white" />}
               {error && <p style={{ color: "red" }}>{error.message}</p>}
             </Form>
+            <Responsive {...Responsive.onlyMobile}>
+              <Divider horizontal>OR</Divider>
+            </Responsive>
           </Grid.Column>
 
           <Grid.Column verticalAlign="middle">
@@ -71,8 +78,9 @@ class LoginForm extends Component {
             />
           </Grid.Column>
         </Grid>
-
-        <Divider vertical>OR</Divider>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <Divider vertical>OR</Divider>
+        </Responsive>
       </Segment>
     );
   }
