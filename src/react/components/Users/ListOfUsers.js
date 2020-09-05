@@ -33,6 +33,8 @@ class ListOfUsers extends Component {
       );
     });
 
+    const style = { wordBreak: "break-all" };
+
     return (
       <>
         <Input
@@ -60,14 +62,16 @@ class ListOfUsers extends Component {
                         ? `https://kwitter-api.herokuapp.com${person.pictureLocation}`
                         : DefaultAvatar
                     }
+                    as={"a"}
+                    href={`/profile/${person.username}`}
                   />
                   <Item.Content verticalAlign="middle">
                     <Item.Header>
-                      <Link to={"/profile/" + person.username}>
+                      <Link to={"/profile/" + person.username} style={style}>
                         {person.displayName}
                       </Link>
                     </Item.Header>
-                    <p>{person.username}</p>
+                    <p style={style}>{person.username}</p>
                   </Item.Content>
                 </Item>
               </Item.Group>
