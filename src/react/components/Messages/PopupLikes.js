@@ -5,16 +5,20 @@ import { addLike, removeLike } from "../../../redux/actionCreators";
 
 class PopupLikes extends Component {
   handleAddLike = () => {
-    if (!this.props.atr.some((user) => user.username === this.props.username)) {
-      return this.props.addLike(this.props.id);
+    if (!this.props.disabled) {
+      if (
+        !this.props.atr.some((user) => user.username === this.props.username)
+      ) {
+        return this.props.addLike(this.props.id);
+      }
+      return this.props.removeLike(
+        Number(
+          this.props.atr
+            .filter((user) => user.username === this.props.username)
+            .map((user) => user.id)
+        )
+      );
     }
-    return this.props.removeLike(
-      Number(
-        this.props.atr
-          .filter((user) => user.username === this.props.username)
-          .map((user) => user.id)
-      )
-    );
   };
 
   render() {

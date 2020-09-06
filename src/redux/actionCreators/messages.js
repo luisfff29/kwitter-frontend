@@ -6,25 +6,25 @@ import { DELETEMESSAGES } from "../actionTypes";
 
 const url = domain + "/messages";
 
-export const getMessages = () => dispatch => {
+export const getMessages = () => (dispatch) => {
   dispatch({ type: GETMESSAGES.START });
 
-  return fetch(url + "?limit=500&offset=0", {
-    method: "GET"
+  return fetch(url, {
+    method: "GET",
   })
     .then(handleJsonResponse)
-    .then(result => {
+    .then((result) => {
       return dispatch({
         type: GETMESSAGES.SUCCESS,
-        payload: result
+        payload: result,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       return Promise.reject(dispatch({ type: GETMESSAGES.FAIL, payload: err }));
     });
 };
 
-const _createMessage = messageText => (dispatch, getState) => {
+const _createMessage = (messageText) => (dispatch, getState) => {
   dispatch({ type: CREATEMESSAGE.START });
 
   const token = getState().auth.login.result.token;
@@ -32,16 +32,16 @@ const _createMessage = messageText => (dispatch, getState) => {
   return fetch(url, {
     method: "POST",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders },
-    body: JSON.stringify({ text: messageText })
+    body: JSON.stringify({ text: messageText }),
   })
     .then(handleJsonResponse)
-    .then(result => {
+    .then((result) => {
       return dispatch({
         type: CREATEMESSAGE.SUCCESS,
-        payload: result
+        payload: result,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       return Promise.reject(
         dispatch({ type: CREATEMESSAGE.FAIL, payload: err })
       );
@@ -50,26 +50,26 @@ const _createMessage = messageText => (dispatch, getState) => {
 
 //chained action creators
 //createMessage -> getMessages
-export const createMessage = messageText => (dispatch, getState) => {
+export const createMessage = (messageText) => (dispatch, getState) => {
   return dispatch(_createMessage(messageText)).then(() =>
     dispatch(getMessages())
   );
 };
 
-export const getPersonalMessages = username => dispatch => {
+export const getPersonalMessages = (username) => (dispatch) => {
   dispatch({ type: GETPERSONALMESSAGES.START });
 
   return fetch(url + "?limit=100&offset=0&username=" + username, {
-    method: "GET"
+    method: "GET",
   })
     .then(handleJsonResponse)
-    .then(result => {
+    .then((result) => {
       return dispatch({
         type: GETPERSONALMESSAGES.SUCCESS,
-        payload: result
+        payload: result,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       return Promise.reject(
         dispatch({ type: GETPERSONALMESSAGES.FAIL, payload: err })
       );
@@ -83,16 +83,16 @@ const _deleteMessages = (messageId, username) => (dispatch, getState) => {
 
   return fetch(url + "/" + messageId, {
     method: "DELETE",
-    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders },
   })
     .then(handleJsonResponse)
-    .then(result => {
+    .then((result) => {
       return dispatch({
         type: DELETEMESSAGES.SUCCESS,
-        payload: result
+        payload: result,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       return Promise.reject(
         dispatch({ type: DELETEMESSAGES.FAIL, payload: err })
       );

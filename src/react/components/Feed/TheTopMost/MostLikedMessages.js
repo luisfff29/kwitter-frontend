@@ -45,7 +45,7 @@ class MostLikedMessages extends Component {
                       {new Date(message.createdAt).toLocaleString()}
                     </Comment.Metadata>
                     <Comment.Text>{message.text}</Comment.Text>
-                    <PopupLikes atr={message.likes} />
+                    <PopupLikes atr={message.likes} disabled />
                   </Comment.Content>
                 </Comment>
               </Comment.Group>
